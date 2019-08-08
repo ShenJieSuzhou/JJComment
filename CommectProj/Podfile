@@ -1,0 +1,6 @@
+target 'CommectProj' do
+
+    pod 'Masonry'
+    pod 'YYText'
+
+end

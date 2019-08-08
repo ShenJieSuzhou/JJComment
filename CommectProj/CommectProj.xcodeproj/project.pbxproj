@@ -1,0 +1,520 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2127141E8B7BEFE3A0D6B7E0 /* libPods-CommectProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1DBEEF9BE9CFEEEF43B9CA /* libPods-CommectProj.a */; };
+		E51ABA5F22F94D7500449075 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA5E22F94D7500449075 /* AppDelegate.m */; };
+		E51ABA6222F94D7500449075 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA6122F94D7500449075 /* ViewController.m */; };
+		E51ABA6522F94D7500449075 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E51ABA6322F94D7500449075 /* Main.storyboard */; };
+		E51ABA6722F94D7600449075 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E51ABA6622F94D7600449075 /* Assets.xcassets */; };
+		E51ABA6A22F94D7600449075 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E51ABA6822F94D7600449075 /* LaunchScreen.storyboard */; };
+		E51ABA6D22F94D7600449075 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA6C22F94D7600449075 /* main.m */; };
+		E51ABA7522F94D9500449075 /* CommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA7422F94D9500449075 /* CommentView.m */; };
+		E51ABA7922F9734800449075 /* JJCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA7822F9734800449075 /* JJCommentModel.m */; };
+		E51ABA7C22F97C2300449075 /* JJTopicFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA7B22F97C2300449075 /* JJTopicFrame.m */; };
+		E51ABA8022F97C8500449075 /* JJCommentInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA7F22F97C8500449075 /* JJCommentInputView.m */; };
+		E51ABA8322F980C500449075 /* JJCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA8222F980C500449075 /* JJCommentCell.m */; };
+		E51ABA8622F9821400449075 /* JJCommentFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA8522F9821400449075 /* JJCommentFrame.m */; };
+		E51ABA8922F9832D00449075 /* JJComment.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA8822F9832D00449075 /* JJComment.m */; };
+		E51ABA8E22F9855200449075 /* JJCommentConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA8D22F9855200449075 /* JJCommentConstant.m */; };
+		E51ABA9122FA763000449075 /* JJTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA9022FA763000449075 /* JJTopic.m */; };
+		E51ABA9422FA9B0300449075 /* JJCommentReplay.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA9322FA9B0300449075 /* JJCommentReplay.m */; };
+		E51ABA9722FA9D6600449075 /* JJTopicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA9622FA9D6600449075 /* JJTopicManager.m */; };
+		E54797C022FBC4A300040E04 /* NSDateFormatter+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E54797BD22FBC4A300040E04 /* NSDateFormatter+Extension.m */; };
+		E54797C122FBC4A300040E04 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E54797BE22FBC4A300040E04 /* NSDate+Extension.m */; };
+		E54797C422FBC92300040E04 /* JJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E54797C322FBC92300040E04 /* JJUser.m */; };
+		E54797C722FBF29000040E04 /* UIFont+JJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E54797C622FBF29000040E04 /* UIFont+JJExtension.m */; };
+		E54797CA22FC0C1A00040E04 /* Works.m in Sources */ = {isa = PBXBuildFile; fileRef = E54797C922FC0C1A00040E04 /* Works.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5D1DBEEF9BE9CFEEEF43B9CA /* libPods-CommectProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CommectProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3392995815E0B548D2EA5E6 /* Pods-CommectProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommectProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommectProj/Pods-CommectProj.debug.xcconfig"; sourceTree = "<group>"; };
+		E51ABA5A22F94D7500449075 /* CommectProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommectProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E51ABA5D22F94D7500449075 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E51ABA5E22F94D7500449075 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E51ABA6022F94D7500449075 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E51ABA6122F94D7500449075 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E51ABA6422F94D7500449075 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E51ABA6622F94D7600449075 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E51ABA6922F94D7600449075 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E51ABA6B22F94D7600449075 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E51ABA6C22F94D7600449075 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E51ABA7322F94D9500449075 /* CommentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentView.h; sourceTree = "<group>"; };
+		E51ABA7422F94D9500449075 /* CommentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentView.m; sourceTree = "<group>"; };
+		E51ABA7722F9734800449075 /* JJCommentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJCommentModel.h; sourceTree = "<group>"; };
+		E51ABA7822F9734800449075 /* JJCommentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJCommentModel.m; sourceTree = "<group>"; };
+		E51ABA7A22F97C2300449075 /* JJTopicFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJTopicFrame.h; sourceTree = "<group>"; };
+		E51ABA7B22F97C2300449075 /* JJTopicFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJTopicFrame.m; sourceTree = "<group>"; };
+		E51ABA7E22F97C8500449075 /* JJCommentInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJCommentInputView.h; sourceTree = "<group>"; };
+		E51ABA7F22F97C8500449075 /* JJCommentInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJCommentInputView.m; sourceTree = "<group>"; };
+		E51ABA8122F980C500449075 /* JJCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJCommentCell.h; sourceTree = "<group>"; };
+		E51ABA8222F980C500449075 /* JJCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJCommentCell.m; sourceTree = "<group>"; };
+		E51ABA8422F9821400449075 /* JJCommentFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJCommentFrame.h; sourceTree = "<group>"; };
+		E51ABA8522F9821400449075 /* JJCommentFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJCommentFrame.m; sourceTree = "<group>"; };
+		E51ABA8722F9832D00449075 /* JJComment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJComment.h; sourceTree = "<group>"; };
+		E51ABA8822F9832D00449075 /* JJComment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJComment.m; sourceTree = "<group>"; };
+		E51ABA8C22F9855200449075 /* JJCommentConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJCommentConstant.h; sourceTree = "<group>"; };
+		E51ABA8D22F9855200449075 /* JJCommentConstant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJCommentConstant.m; sourceTree = "<group>"; };
+		E51ABA8F22FA763000449075 /* JJTopic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJTopic.h; sourceTree = "<group>"; };
+		E51ABA9022FA763000449075 /* JJTopic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJTopic.m; sourceTree = "<group>"; };
+		E51ABA9222FA9B0300449075 /* JJCommentReplay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJCommentReplay.h; sourceTree = "<group>"; };
+		E51ABA9322FA9B0300449075 /* JJCommentReplay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJCommentReplay.m; sourceTree = "<group>"; };
+		E51ABA9522FA9D6600449075 /* JJTopicManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJTopicManager.h; sourceTree = "<group>"; };
+		E51ABA9622FA9D6600449075 /* JJTopicManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJTopicManager.m; sourceTree = "<group>"; };
+		E54797BC22FBC4A300040E04 /* NSDateFormatter+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Extension.h"; sourceTree = "<group>"; };
+		E54797BD22FBC4A300040E04 /* NSDateFormatter+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Extension.m"; sourceTree = "<group>"; };
+		E54797BE22FBC4A300040E04 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		E54797BF22FBC4A300040E04 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		E54797C222FBC92300040E04 /* JJUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJUser.h; sourceTree = "<group>"; };
+		E54797C322FBC92300040E04 /* JJUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJUser.m; sourceTree = "<group>"; };
+		E54797C522FBF29000040E04 /* UIFont+JJExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+JJExtension.h"; sourceTree = "<group>"; };
+		E54797C622FBF29000040E04 /* UIFont+JJExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+JJExtension.m"; sourceTree = "<group>"; };
+		E54797C822FC0C1A00040E04 /* Works.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Works.h; sourceTree = "<group>"; };
+		E54797C922FC0C1A00040E04 /* Works.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Works.m; sourceTree = "<group>"; };
+		EF96B3DBED9AE0BFCF00F7B8 /* Pods-CommectProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommectProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-CommectProj/Pods-CommectProj.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E51ABA5722F94D7500449075 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2127141E8B7BEFE3A0D6B7E0 /* libPods-CommectProj.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		116C155F10FBEF75FD9A6A59 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3392995815E0B548D2EA5E6 /* Pods-CommectProj.debug.xcconfig */,
+				EF96B3DBED9AE0BFCF00F7B8 /* Pods-CommectProj.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		89232FB39E842EAD92A2A156 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D1DBEEF9BE9CFEEEF43B9CA /* libPods-CommectProj.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E51ABA5122F94D7500449075 = {
+			isa = PBXGroup;
+			children = (
+				E51ABA9522FA9D6600449075 /* JJTopicManager.h */,
+				E51ABA9622FA9D6600449075 /* JJTopicManager.m */,
+				E51ABA8B22F9853300449075 /* Other */,
+				E51ABA7D22F97C5100449075 /* View */,
+				E51ABA7622F9732B00449075 /* Model */,
+				E51ABA7322F94D9500449075 /* CommentView.h */,
+				E51ABA7422F94D9500449075 /* CommentView.m */,
+				E51ABA5C22F94D7500449075 /* CommectProj */,
+				E51ABA5B22F94D7500449075 /* Products */,
+				116C155F10FBEF75FD9A6A59 /* Pods */,
+				89232FB39E842EAD92A2A156 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E51ABA5B22F94D7500449075 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E51ABA5A22F94D7500449075 /* CommectProj.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E51ABA5C22F94D7500449075 /* CommectProj */ = {
+			isa = PBXGroup;
+			children = (
+				E51ABA5D22F94D7500449075 /* AppDelegate.h */,
+				E51ABA5E22F94D7500449075 /* AppDelegate.m */,
+				E51ABA6022F94D7500449075 /* ViewController.h */,
+				E51ABA6122F94D7500449075 /* ViewController.m */,
+				E51ABA6322F94D7500449075 /* Main.storyboard */,
+				E51ABA6622F94D7600449075 /* Assets.xcassets */,
+				E51ABA6822F94D7600449075 /* LaunchScreen.storyboard */,
+				E51ABA6B22F94D7600449075 /* Info.plist */,
+				E51ABA6C22F94D7600449075 /* main.m */,
+			);
+			path = CommectProj;
+			sourceTree = "<group>";
+		};
+		E51ABA7622F9732B00449075 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E54797C822FC0C1A00040E04 /* Works.h */,
+				E54797C922FC0C1A00040E04 /* Works.m */,
+				E51ABA7722F9734800449075 /* JJCommentModel.h */,
+				E51ABA7822F9734800449075 /* JJCommentModel.m */,
+				E51ABA7A22F97C2300449075 /* JJTopicFrame.h */,
+				E51ABA7B22F97C2300449075 /* JJTopicFrame.m */,
+				E51ABA8422F9821400449075 /* JJCommentFrame.h */,
+				E51ABA8522F9821400449075 /* JJCommentFrame.m */,
+				E51ABA8722F9832D00449075 /* JJComment.h */,
+				E51ABA8822F9832D00449075 /* JJComment.m */,
+				E51ABA8F22FA763000449075 /* JJTopic.h */,
+				E51ABA9022FA763000449075 /* JJTopic.m */,
+				E51ABA9222FA9B0300449075 /* JJCommentReplay.h */,
+				E51ABA9322FA9B0300449075 /* JJCommentReplay.m */,
+				E54797C222FBC92300040E04 /* JJUser.h */,
+				E54797C322FBC92300040E04 /* JJUser.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E51ABA7D22F97C5100449075 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E51ABA7E22F97C8500449075 /* JJCommentInputView.h */,
+				E51ABA7F22F97C8500449075 /* JJCommentInputView.m */,
+				E51ABA8122F980C500449075 /* JJCommentCell.h */,
+				E51ABA8222F980C500449075 /* JJCommentCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E51ABA8B22F9853300449075 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				E51ABA9A22FBC43C00449075 /* Category */,
+				E51ABA8C22F9855200449075 /* JJCommentConstant.h */,
+				E51ABA8D22F9855200449075 /* JJCommentConstant.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		E51ABA9A22FBC43C00449075 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E54797BF22FBC4A300040E04 /* NSDate+Extension.h */,
+				E54797BE22FBC4A300040E04 /* NSDate+Extension.m */,
+				E54797BC22FBC4A300040E04 /* NSDateFormatter+Extension.h */,
+				E54797BD22FBC4A300040E04 /* NSDateFormatter+Extension.m */,
+				E54797C522FBF29000040E04 /* UIFont+JJExtension.h */,
+				E54797C622FBF29000040E04 /* UIFont+JJExtension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E51ABA5922F94D7500449075 /* CommectProj */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E51ABA7022F94D7600449075 /* Build configuration list for PBXNativeTarget "CommectProj" */;
+			buildPhases = (
+				0CB6849652A94367442614BD /* [CP] Check Pods Manifest.lock */,
+				E51ABA5622F94D7500449075 /* Sources */,
+				E51ABA5722F94D7500449075 /* Frameworks */,
+				E51ABA5822F94D7500449075 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CommectProj;
+			productName = CommectProj;
+			productReference = E51ABA5A22F94D7500449075 /* CommectProj.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E51ABA5222F94D7500449075 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = shenjie;
+				TargetAttributes = {
+					E51ABA5922F94D7500449075 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+				};
+			};
+			buildConfigurationList = E51ABA5522F94D7500449075 /* Build configuration list for PBXProject "CommectProj" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E51ABA5122F94D7500449075;
+			productRefGroup = E51ABA5B22F94D7500449075 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E51ABA5922F94D7500449075 /* CommectProj */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E51ABA5822F94D7500449075 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E51ABA6A22F94D7600449075 /* LaunchScreen.storyboard in Resources */,
+				E51ABA6722F94D7600449075 /* Assets.xcassets in Resources */,
+				E51ABA6522F94D7500449075 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0CB6849652A94367442614BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CommectProj-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E51ABA5622F94D7500449075 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E51ABA6222F94D7500449075 /* ViewController.m in Sources */,
+				E54797C422FBC92300040E04 /* JJUser.m in Sources */,
+				E54797C722FBF29000040E04 /* UIFont+JJExtension.m in Sources */,
+				E51ABA8322F980C500449075 /* JJCommentCell.m in Sources */,
+				E51ABA7C22F97C2300449075 /* JJTopicFrame.m in Sources */,
+				E54797CA22FC0C1A00040E04 /* Works.m in Sources */,
+				E51ABA9722FA9D6600449075 /* JJTopicManager.m in Sources */,
+				E54797C122FBC4A300040E04 /* NSDate+Extension.m in Sources */,
+				E51ABA6D22F94D7600449075 /* main.m in Sources */,
+				E51ABA8E22F9855200449075 /* JJCommentConstant.m in Sources */,
+				E51ABA7522F94D9500449075 /* CommentView.m in Sources */,
+				E51ABA8922F9832D00449075 /* JJComment.m in Sources */,
+				E51ABA5F22F94D7500449075 /* AppDelegate.m in Sources */,
+				E51ABA7922F9734800449075 /* JJCommentModel.m in Sources */,
+				E51ABA8022F97C8500449075 /* JJCommentInputView.m in Sources */,
+				E51ABA8622F9821400449075 /* JJCommentFrame.m in Sources */,
+				E54797C022FBC4A300040E04 /* NSDateFormatter+Extension.m in Sources */,
+				E51ABA9122FA763000449075 /* JJTopic.m in Sources */,
+				E51ABA9422FA9B0300449075 /* JJCommentReplay.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E51ABA6322F94D7500449075 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E51ABA6422F94D7500449075 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E51ABA6822F94D7600449075 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E51ABA6922F94D7600449075 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E51ABA6E22F94D7600449075 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E51ABA6F22F94D7600449075 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E51ABA7122F94D7600449075 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3392995815E0B548D2EA5E6 /* Pods-CommectProj.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = WSSN499SLU;
+				INFOPLIST_FILE = CommectProj/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames..CommectProj;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = UniversalSnailDev;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E51ABA7222F94D7600449075 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF96B3DBED9AE0BFCF00F7B8 /* Pods-CommectProj.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = CommectProj/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.snailgames..CommectProj;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E51ABA5522F94D7500449075 /* Build configuration list for PBXProject "CommectProj" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E51ABA6E22F94D7600449075 /* Debug */,
+				E51ABA6F22F94D7600449075 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E51ABA7022F94D7600449075 /* Build configuration list for PBXNativeTarget "CommectProj" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E51ABA7122F94D7600449075 /* Debug */,
+				E51ABA7222F94D7600449075 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E51ABA5222F94D7500449075 /* Project object */;
+}

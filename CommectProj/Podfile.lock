@@ -1,0 +1,20 @@
+PODS:
+  - Masonry (1.1.0)
+  - YYText (1.0.7)
+
+DEPENDENCIES:
+  - Masonry
+  - YYText
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Masonry
+    - YYText
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
+
+PODFILE CHECKSUM: 3338ee3b30a295e2fbaae0f0373e64138eb8e616
+
+COCOAPODS: 1.5.3
