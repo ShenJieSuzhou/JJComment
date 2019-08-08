@@ -94,19 +94,25 @@
     
     // 测试评论数据
     NSString *text = @"不忘初心，牢记使命";
-    for (int i = 30; i > 0; i++) {
-        Works *testWork = [[Works alloc] initWithPath:nil photoID:@"" userid:@"" work:@"" time:@"" like:@"" nickName:@"" avatar:@"" hasLiked:YES];
-        NSInteger commentsCount = [self mh_randomNumber:0 to:20];
-        testWork.commentsCount = commentsCount;
-        testWork.user = _users[[self mh_randomNumber:0 to:9]];
+    Works *testWork = [[Works alloc] initWithPath:nil photoID:@"" userid:@"" work:@"" time:@"" like:@"" nickName:@"" avatar:@"" hasLiked:YES];
+    NSInteger commentsCount = [self mh_randomNumber:0 to:40];
+    testWork.commentsCount = commentsCount;
+    testWork.user = _users[[self mh_randomNumber:0 to:9]];
+    
+    for (int j = 0; j < commentsCount; j++) {
+        JJComment *comment = [[JJComment alloc] init];
+        comment.commentId = [NSString stringWithFormat:@"0000%d", j];
+        comment.createTime = @"2019-07-08";
+        comment.text = text;
         
-        for (int i = 0; i < commentsCount; i++) {
-            JJComment *comment = [[JJComment alloc] init];
-            comment.commentId = [NSString stringWithFormat:@"%d", i];
-            comment.createTime = @"2019-07-08";
-            comment.text = text;
-            comment.toUser =
+        if (j%3 == 0) {
+            JJUser *toUser = _users[[self mh_randomNumber:0 to:5]];
+            comment.toUser = toUser;
         }
+        
+        JJUser *fromUser = _users[[self mh_randomNumber:6 to:9]];
+        comment.fromUser = fromUser;
+        [testWork.comments addObject:comment];
     }
     
     //添加数据
