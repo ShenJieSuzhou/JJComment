@@ -13,5 +13,7 @@
 
 @property(nonatomic, strong) CommentView *commentView;
 
+// 评论框
+
 @end
 

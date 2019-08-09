@@ -28,6 +28,44 @@ UIKIT_EXTERN NSInteger const JJCommentMaxWords;
 
 UIKIT_EXTERN CGFloat const JJCommentContentLineSpacing;
 
+/** 视频评论成功的通知 */
+UIKIT_EXTERN NSString * const JJCommentSuccessNotification;
+
+/** 视频点赞成功的通知 */
+UIKIT_EXTERN NSString * const JJLikeSuccessNotification;
+
+/** 视频评论回复成功的通知 */
+UIKIT_EXTERN NSString * const JJCommentReplySuccessNotification;
+
+/** 视频评论获取成功的事件 */
+UIKIT_EXTERN NSString * const JJCommentRequestDataSuccessNotification;
+
+/** 视频评论获取成功的事件 */
+UIKIT_EXTERN NSString * const JJCommentRequestDataSuccessKey;
+
+/**  话题头像宽高 */
+UIKIT_EXTERN CGFloat const JJTopicAvatarWH;
+/**  话题水平方向间隙 */
+UIKIT_EXTERN CGFloat const JJTopicHorizontalSpace;
+/**  话题垂直方向间隙 */
+UIKIT_EXTERN CGFloat const JJTopicVerticalSpace;
+/**  话题更多按钮宽 */
+UIKIT_EXTERN CGFloat const JJTopicMoreButtonW;
+
+/** 评论高度 */
+UIKIT_EXTERN CGFloat const JJCommentHeaderViewHeight;
+
+/** 评论工具高度 */
+UIKIT_EXTERN CGFloat const JJCommentToolBarHeight;
+
+/** 每页数据 */
+UIKIT_EXTERN NSUInteger const JJCommentMaxCount;
+
+/**
+ *  全局细线高度 .75f
+ */
+UIKIT_EXTERN CGFloat const JJGlobalBottomLineHeight;
+
 // 屏幕总尺寸
 #define JJMainScreenBounds  [UIScreen mainScreen].bounds
 #define JJMainScreenHeight  [UIScreen mainScreen].bounds.size.height

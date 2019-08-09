@@ -17,10 +17,12 @@
 #import "JJTopicManager.h"
 #import "JJCommentInputView.h"
 #import "JJUser.h"
+#import "JJTopicHeaderView.h"
+#import "JJTopicFooterView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CommentView : UIView<UITableViewDelegate, UITableViewDataSource, JJCommentCellDelegate, JJCommentInputViewDelegate>
+@interface CommentView : UIView<UITableViewDelegate, UITableViewDataSource, JJCommentCellDelegate, JJCommentInputViewDelegate, JJTopicHeaderViewDelegate>
 
 @property (nonatomic, strong) UITableView *commentTableView;
 

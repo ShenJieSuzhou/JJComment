@@ -40,6 +40,19 @@
 
 - (NSAttributedString *)attributedText{
     
+    if ([self.commentId isEqualToString:@"ALL"]) {
+        
+        // 测试数据
+        NSString *textString = [NSString stringWithFormat:@"%@",self.text];
+        
+        NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] initWithString:textString];
+        mutableAttributedString.yy_font = JJCommentTextFont;
+        mutableAttributedString.yy_color = [UIColor blackColor];
+        mutableAttributedString.yy_lineSpacing = JJCommentContentLineSpacing;
+        return mutableAttributedString;
+    }
+    
+    
     if(self.toUser && self.toUser.nickname.length > 0){
         NSString *textString = [NSString stringWithFormat:@"%@回复%@: %@", self.fromUser.nickname, self.toUser.nickname, self.text];
         NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] initWithString:textString];

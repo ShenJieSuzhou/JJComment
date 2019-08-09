@@ -30,6 +30,9 @@
 		E54797C422FBC92300040E04 /* JJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E54797C322FBC92300040E04 /* JJUser.m */; };
 		E54797C722FBF29000040E04 /* UIFont+JJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E54797C622FBF29000040E04 /* UIFont+JJExtension.m */; };
 		E54797CA22FC0C1A00040E04 /* Works.m in Sources */ = {isa = PBXBuildFile; fileRef = E54797C922FC0C1A00040E04 /* Works.m */; };
+		E54797CD22FD46BA00040E04 /* NSString+JJSize.m in Sources */ = {isa = PBXBuildFile; fileRef = E54797CC22FD46BA00040E04 /* NSString+JJSize.m */; };
+		E54797D022FD55D300040E04 /* JJTopicHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E54797CF22FD55D300040E04 /* JJTopicHeaderView.m */; };
+		E54797D322FD642B00040E04 /* JJTopicFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E54797D222FD642B00040E04 /* JJTopicFooterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +80,12 @@
 		E54797C622FBF29000040E04 /* UIFont+JJExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIFont+JJExtension.m"; sourceTree = "<group>"; };
 		E54797C822FC0C1A00040E04 /* Works.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Works.h; sourceTree = "<group>"; };
 		E54797C922FC0C1A00040E04 /* Works.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Works.m; sourceTree = "<group>"; };
+		E54797CB22FD46BA00040E04 /* NSString+JJSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+JJSize.h"; sourceTree = "<group>"; };
+		E54797CC22FD46BA00040E04 /* NSString+JJSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+JJSize.m"; sourceTree = "<group>"; };
+		E54797CE22FD55D300040E04 /* JJTopicHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJTopicHeaderView.h; sourceTree = "<group>"; };
+		E54797CF22FD55D300040E04 /* JJTopicHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJTopicHeaderView.m; sourceTree = "<group>"; };
+		E54797D122FD642B00040E04 /* JJTopicFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJTopicFooterView.h; sourceTree = "<group>"; };
+		E54797D222FD642B00040E04 /* JJTopicFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJTopicFooterView.m; sourceTree = "<group>"; };
 		EF96B3DBED9AE0BFCF00F7B8 /* Pods-CommectProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommectProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-CommectProj/Pods-CommectProj.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +189,10 @@
 				E51ABA7F22F97C8500449075 /* JJCommentInputView.m */,
 				E51ABA8122F980C500449075 /* JJCommentCell.h */,
 				E51ABA8222F980C500449075 /* JJCommentCell.m */,
+				E54797CE22FD55D300040E04 /* JJTopicHeaderView.h */,
+				E54797CF22FD55D300040E04 /* JJTopicHeaderView.m */,
+				E54797D122FD642B00040E04 /* JJTopicFooterView.h */,
+				E54797D222FD642B00040E04 /* JJTopicFooterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -203,6 +216,8 @@
 				E54797BD22FBC4A300040E04 /* NSDateFormatter+Extension.m */,
 				E54797C522FBF29000040E04 /* UIFont+JJExtension.h */,
 				E54797C622FBF29000040E04 /* UIFont+JJExtension.m */,
+				E54797CB22FD46BA00040E04 /* NSString+JJSize.h */,
+				E54797CC22FD46BA00040E04 /* NSString+JJSize.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -218,6 +233,7 @@
 				E51ABA5622F94D7500449075 /* Sources */,
 				E51ABA5722F94D7500449075 /* Frameworks */,
 				E51ABA5822F94D7500449075 /* Resources */,
+				75C02B2CF6F305C460FD811E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -292,6 +308,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		75C02B2CF6F305C460FD811E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CommectProj/Pods-CommectProj-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CommectProj/Pods-CommectProj-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -301,6 +335,7 @@
 			files = (
 				E51ABA6222F94D7500449075 /* ViewController.m in Sources */,
 				E54797C422FBC92300040E04 /* JJUser.m in Sources */,
+				E54797CD22FD46BA00040E04 /* NSString+JJSize.m in Sources */,
 				E54797C722FBF29000040E04 /* UIFont+JJExtension.m in Sources */,
 				E51ABA8322F980C500449075 /* JJCommentCell.m in Sources */,
 				E51ABA7C22F97C2300449075 /* JJTopicFrame.m in Sources */,
@@ -309,11 +344,13 @@
 				E54797C122FBC4A300040E04 /* NSDate+Extension.m in Sources */,
 				E51ABA6D22F94D7600449075 /* main.m in Sources */,
 				E51ABA8E22F9855200449075 /* JJCommentConstant.m in Sources */,
+				E54797D022FD55D300040E04 /* JJTopicHeaderView.m in Sources */,
 				E51ABA7522F94D9500449075 /* CommentView.m in Sources */,
 				E51ABA8922F9832D00449075 /* JJComment.m in Sources */,
 				E51ABA5F22F94D7500449075 /* AppDelegate.m in Sources */,
 				E51ABA7922F9734800449075 /* JJCommentModel.m in Sources */,
 				E51ABA8022F97C8500449075 /* JJCommentInputView.m in Sources */,
+				E54797D322FD642B00040E04 /* JJTopicFooterView.m in Sources */,
 				E51ABA8622F9821400449075 /* JJCommentFrame.m in Sources */,
 				E54797C022FBC4A300040E04 /* NSDateFormatter+Extension.m in Sources */,
 				E51ABA9122FA763000449075 /* JJTopic.m in Sources */,
@@ -463,6 +500,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = WSSN499SLU;
 				INFOPLIST_FILE = CommectProj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,6 +520,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CommectProj/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

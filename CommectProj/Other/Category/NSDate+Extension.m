@@ -20,7 +20,7 @@
 /**
  *  是否为今天
  */
-- (BOOL)mh_isToday
+- (BOOL)jj_isToday
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     int unit = NSCalendarUnitDay | NSCalendarUnitMonth |  NSCalendarUnitYear;
@@ -39,13 +39,13 @@
 /**
  *  是否为昨天
  */
-- (BOOL)mh_isYesterday
+- (BOOL)jj_isYesterday
 {
     // 2014-05-01
-    NSDate *nowDate = [[NSDate date] mh_dateWithYMD];
+    NSDate *nowDate = [[NSDate date] jj_dateWithYMD];
     
     // 2014-04-30
-    NSDate *selfDate = [self mh_dateWithYMD];
+    NSDate *selfDate = [self jj_dateWithYMD];
     
     // 获得nowDate和selfDate的差距
     NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -53,7 +53,7 @@
     return cmps.day == 1;
 }
 
-- (NSDate *)mh_dateWithYMD
+- (NSDate *)jj_dateWithYMD
 {
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     fmt.dateFormat = @"yyyy-MM-dd";
@@ -65,7 +65,7 @@
 /**
  *  是否为今年
  */
-- (BOOL)mh_isThisYear
+- (BOOL)jj_isThisYear
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     int unit = NSCalendarUnitYear;
@@ -81,7 +81,7 @@
 
 
 // This hard codes the assumption that a week is 7 days
-- (BOOL) mh_isSameWeekWithAnotherDate: (NSDate *)anotherDate
+- (BOOL) jj_isSameWeekWithAnotherDate: (NSDate *)anotherDate
 {
     NSDateComponents *components1 = [CURRENT_CALENDAR components:DATE_COMPONENTS fromDate:self];
     
@@ -91,13 +91,13 @@
     if (components1.weekOfMonth != components2.weekOfMonth) return NO;
     
     // Must have a time interval under 1 week. Thanks @aclark
-    return (fabs([self timeIntervalSinceDate:anotherDate]) < MH_D_WEEK);
+    return (fabs([self timeIntervalSinceDate:anotherDate]) < JJ_D_WEEK);
 }
 
 /**
  *  星期几
  */
-- (NSString *)mh_weekDay
+- (NSString *)jj_weekDay
 {
     NSArray *weekDays = @[@"星期日",@"星期一",@"星期二",@"星期三",@"星期四",@"星期五",@"星期六"];
     
@@ -110,9 +110,9 @@
 
 
 
-- (BOOL) mh_isThisWeek
+- (BOOL) jj_isThisWeek
 {
-    return [self mh_isSameWeekWithAnotherDate:[NSDate date]];
+    return [self jj_isSameWeekWithAnotherDate:[NSDate date]];
 }
 
 
@@ -123,48 +123,48 @@
  *
  *  @return 时间
  */
-+ (instancetype)mh_dateWithTimestamp:(NSString *)timestamp
++ (instancetype)jj_dateWithTimestamp:(NSString *)timestamp
 {
-    return [[NSDateFormatter mh_defaultDateFormatter] dateFromString:timestamp];
+    return [[NSDateFormatter jj_defaultDateFormatter] dateFromString:timestamp];
 }
 
 
 /**
  *  返回固定的 当前时间 2016-8-10 14:43:45
  */
-+ (NSString *)mh_currentTimestamp
++ (NSString *)jj_currentTimestamp
 {
-    return [[NSDateFormatter mh_defaultDateFormatter] stringFromDate:[NSDate date]];
+    return [[NSDateFormatter jj_defaultDateFormatter] stringFromDate:[NSDate date]];
 }
 
 /**
  * 格式化日期描述
  */
-- (NSString *)mh_formattedDateDescription
+- (NSString *)jj_formattedDateDescription
 {
     NSDateFormatter *dateFormatter = nil;
     NSString *result = nil;
     
-    if ([self mh_isThisYear])
+    if ([self jj_isThisYear])
     {
         // 今年
-        if ([self mh_isToday]) {
+        if ([self jj_isToday]) {
             // 22:22
-            dateFormatter = [NSDateFormatter mh_dateFormatterWithFormat:@"HH:mm"];
-        }else if ([self mh_isYesterday]){
+            dateFormatter = [NSDateFormatter jj_dateFormatterWithFormat:@"HH:mm"];
+        }else if ([self jj_isYesterday]){
             // 昨天 22:22
-            dateFormatter = [NSDateFormatter mh_dateFormatterWithFormat:@"昨天 HH:mm"];
-        }else if ([self mh_isThisWeek]){
+            dateFormatter = [NSDateFormatter jj_dateFormatterWithFormat:@"昨天 HH:mm"];
+        }else if ([self jj_isThisWeek]){
             // 星期二 22:22
-            dateFormatter = [NSDateFormatter mh_dateFormatterWithFormat:[NSString stringWithFormat:@"%@ HH:mm" , [self mh_weekDay]]];
+            dateFormatter = [NSDateFormatter jj_dateFormatterWithFormat:[NSString stringWithFormat:@"%@ HH:mm" , [self jj_weekDay]]];
         }else{
             // 2016年08月18日 22:22
-            dateFormatter = [NSDateFormatter mh_dateFormatterWithFormat:@"yyyy年MM月dd日 HH:mm"];
+            dateFormatter = [NSDateFormatter jj_dateFormatterWithFormat:@"yyyy年MM月dd日 HH:mm"];
         }
         
     }else{
         // 非今年
-        dateFormatter = [NSDateFormatter mh_dateFormatterWithFormat:@"yyyy年MM月dd日"];
+        dateFormatter = [NSDateFormatter jj_dateFormatterWithFormat:@"yyyy年MM月dd日"];
     }
     
     result = [dateFormatter stringFromDate:self];
@@ -173,7 +173,7 @@
 }
 
 /** 与当前时间的差距 */
-- (NSDateComponents *)mh_deltaWithNow
+- (NSDateComponents *)jj_deltaWithNow
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     int unit = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
@@ -184,11 +184,11 @@
 
 
 //////////// MVC&MVVM的商品的发布时间的描述 ////////////
-- (NSString *)mh_string_yyyy_MM_dd {
-    return [self mh_string_yyyy_MM_dd:[NSDate date]];
+- (NSString *)jj_string_yyyy_MM_dd {
+    return [self jj_string_yyyy_MM_dd:[NSDate date]];
 }
 
-- (NSString *)mh_string_yyyy_MM_dd:(NSDate *)toDate {
+- (NSString *)jj_string_yyyy_MM_dd:(NSDate *)toDate {
     // 设置日期格式（声明字符串里面每个数字和单词的含义）
     // E:星期几
     // M:月份
