@@ -147,6 +147,7 @@
 - (JJTopicFrame *)topicFrameWithTopic:(JJTopic *)topic{
     if(topic.commentsCount > 2){
         JJComment *comment = [[JJComment alloc] init];
+        comment.commentId = @"ALLCOMMENT";
         comment.text = [NSString stringWithFormat:@"查看全部%zd条回复", topic.commentsCount];
         [topic.replayComments addObject:comment];
     }

@@ -40,7 +40,7 @@
 
 - (NSAttributedString *)attributedText{
     
-    if ([self.commentId isEqualToString:@"ALL"]) {
+    if ([self.commentId isEqualToString:@"ALLCOMMENT"]) {
         
         // 测试数据
         NSString *textString = [NSString stringWithFormat:@"%@",self.text];

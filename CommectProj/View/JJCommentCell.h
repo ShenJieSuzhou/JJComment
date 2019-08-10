@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "JJcommentFrame.h"
+#import <YYText/YYText.h>
+
+
 @class JJCommentCell;
 
 @protocol JJCommentCellDelegate <NSObject>
@@ -19,6 +22,7 @@
 @end
 
 @interface JJCommentCell : UITableViewCell
+@property (nonatomic, weak) YYLabel *contentLabel;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
