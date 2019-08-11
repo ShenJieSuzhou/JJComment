@@ -214,7 +214,6 @@
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
     JJTopicHeaderView *headerView = [JJTopicHeaderView headerViewWithTableView:tableView];
     JJTopicFrame *topicFrame = self.dataSource[section];
     headerView.topicFrame = topicFrame;
@@ -280,6 +279,7 @@
     
     if([model isKindOfClass:[JJTopicFrame class]]){
         JJCommentCell *cell = [JJCommentCell cellWithTableView:tableView];
+        [cell setBackgroundColor:[UIColor redColor]];
         JJTopicFrame *topicFrame = (JJTopicFrame *)model;
         JJCommentFrame *commentFrame = topicFrame.commentFrames[indexPath.row];
         cell.commentFrame = commentFrame;

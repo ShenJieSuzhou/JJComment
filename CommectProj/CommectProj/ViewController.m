@@ -117,10 +117,10 @@
         topic.createTime = creatTime;
         topic.text = text;
         topic.user = _users[[self mh_randomNumber:0 to:9]];
-        NSInteger commentsCount = [self mh_randomNumber:0 to:40];
+        NSInteger commentsCount = [self mh_randomNumber:0 to:20];
         topic.commentsCount = commentsCount;
         
-        for (int j = 0; j < 5; j++) {
+        for (int j = 0; j < commentsCount; j++) {
             JJComment *comment = [[JJComment alloc] init];
             comment.commentId = [NSString stringWithFormat:@"0000%d", j];
             comment.createTime = [NSDate jj_currentTimestamp];

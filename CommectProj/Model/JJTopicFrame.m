@@ -70,7 +70,7 @@
     // 内容
     CGFloat textX = nicknameX;
     CGSize textLimitSize = CGSizeMake(width - textX - JJTopicHorizontalSpace, MAXFLOAT);
-    CGFloat textY = CGRectGetMaxY(self.nicknameFrame)+CGRectGetHeight(self.nicknameFrame);
+    CGFloat textY = CGRectGetMaxY(self.nicknameFrame) + CGRectGetHeight(self.nicknameFrame);
     CGFloat textH = [YYTextLayout layoutWithContainerSize:textLimitSize text:topic.attributedText].textBoundingSize.height + JJTopicVerticalSpace + JJTopicVerticalSpace;
     
     self.textFrame = CGRectMake(textX, textY, textLimitSize.width, textH);
@@ -94,7 +94,7 @@
     
     self.tableViewFrame = CGRectMake(tableViewX, tableViewY, tableViewW, tableViewH);
     
-    self.height = CGRectGetMaxX(self.textFrame);
+    self.height = CGRectGetMaxY(self.textFrame);
 }
 
 

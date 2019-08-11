@@ -142,32 +142,25 @@
 }
 
 // 事件处理
-- (void)likeBtnDidClicked:(UIButton *)sender
-{
+- (void)likeBtnDidClicked:(UIButton *)sender{
     if (self.delegate && [self.delegate respondsToSelector:@selector(topicHeaderViewForClickedLikeAction:)]) {
         [self.delegate topicHeaderViewForClickedLikeAction:self];
     }
-    
 }
 
-- (void)moreBtnDidClicked:(UIButton *)sender
-{
-    
+- (void)moreBtnDidClicked:(UIButton *)sender{
     if (self.delegate && [self.delegate respondsToSelector:@selector(topicHeaderViewForClickedMoreAction:)]) {
         [self.delegate topicHeaderViewForClickedMoreAction:self];
     }
 }
 
-- (void)avatarOrNicknameDidClicked
-{
-    
+- (void)avatarOrNicknameDidClicked{
     if (self.delegate && [self.delegate respondsToSelector:@selector(topicHeaderViewDidClickedUser:)]) {
         [self.delegate topicHeaderViewDidClickedUser:self];
     }
 }
 
-- (void)contentTextDidClicked
-{
+- (void)contentTextDidClicked{
     if (self.delegate && [self.delegate respondsToSelector:@selector(topicHeaderViewDidClickedTopicContent:)]) {
         [self.delegate topicHeaderViewDidClickedTopicContent:self];
     }
