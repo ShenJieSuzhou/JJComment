@@ -93,7 +93,7 @@ UIKIT_EXTERN CGFloat const JJGlobalBottomLineHeight;
 #define JJReguFont(__px) [UIFont fontWithName:@"Helvetica" size:__px];
 
 //获取导航栏+状态栏的高度
-#define getNavAndStatusHight  self.navigationController.navigationBar.frame.size.height+[[UIApplication sharedApplication] statusBarFrame].size.height
+#define getNavAndStatusHight  self.navigationController.navigationBar.frame.size.height + [[UIApplication sharedApplication] statusBarFrame].size.height
 
 @interface JJCommentConstant : NSObject
 

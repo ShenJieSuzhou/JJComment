@@ -32,18 +32,18 @@
 
     // 底部工具条
     UIView *bottomToolBar = [[UIView alloc] init];
-    bottomToolBar.backgroundColor = [UIColor whiteColor];
+    bottomToolBar.backgroundColor = [UIColor lightGrayColor];
     [self addSubview:bottomToolBar];
     self.bottomToolBar = bottomToolBar;
 
     UIView *bottomView = [[UIView alloc] init];
-    bottomView.backgroundColor = [UIColor whiteColor];
+    bottomView.backgroundColor = [UIColor clearColor];
     self.bottomView = bottomView;
     [self.bottomToolBar addSubview:bottomView];
 
     // 顶部
     UIView *topView = [[UIView alloc] init];
-    topView.backgroundColor = [UIColor whiteColor];
+    topView.backgroundColor = [UIColor clearColor];
     [self.bottomToolBar addSubview:topView];
     self.topView = topView;
 
@@ -105,10 +105,7 @@
 
     // 布局bottomToolBar
     [self.bottomToolBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.and.right.equalTo(self);
-//        make.bottom.equalTo(self).with.offset(JJTopicCommentToolBarMinHeight);
-        make.bottom.equalTo(self);
-        make.height.mas_equalTo(JJTopicCommentToolBarMinHeight);
+        make.left.right.top.bottom.equalTo(self);
     }];
 
     // 布局topView
@@ -135,15 +132,15 @@
     
     // 布局textView
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.bottomToolBar.mas_left).with.offset(JJPxConvertPt(10.0f));
-        make.right.equalTo(self.bottomToolBar.mas_right).with.offset(JJPxConvertPt(-10.0f));
+        make.left.equalTo(self.bottomToolBar.mas_left).with.offset(10.0f);
+        make.right.equalTo(self.bottomToolBar.mas_right).with.offset(-150.0f);
         make.top.equalTo(self.topView.mas_bottom);
         make.bottom.equalTo(self.bottomView.mas_top);
     }];
 
     // 布局底部
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.bottom.and.right.equalTo(self.bottomToolBar);
+        make.left.bottom.right.equalTo(self.bottomToolBar);
         make.height.mas_equalTo(20);
     }];
 

@@ -22,7 +22,12 @@
 @implementation ViewController
 @synthesize topicFrames = _topicFrames;
 @synthesize commentView = _commentView;
-@synthesize commentInputView = _commentInputView;
+//@synthesize commentInputView = _commentInputView;
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -143,19 +148,7 @@
     [self.commentView setDataSource:self.topicFrames];
     // 添加评论视图
     [self.view addSubview:self.commentView];
-    
-//    [self.view addSubview:self.commentInputView];
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    [window addSubview:self.commentInputView];
 }
-
-- (void)viewWillLayoutSubviews{
-//    [self.commentInputView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.bottom.mas_offset(self);
-//
-//    }];
-}
-
 
 - (JJTopicFrame *)topicFrameWithTopic:(JJTopic *)topic{
     if(topic.commentsCount > 2){
@@ -178,19 +171,19 @@
 
 - (CommentView *)commentView{
     if(!_commentView){
-        _commentView = [CommentView new];
-        [_commentView setFrame:CGRectMake(0, getNavAndStatusHight, self.view.frame.size.width, self.view.frame.size.height - getNavAndStatusHight)];
+        _commentView = [[CommentView alloc] initWithFrame:CGRectZero];
+        [_commentView setFrame:CGRectMake(0, getNavAndStatusHight, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - getNavAndStatusHight)];
     }
     
     return _commentView;
 }
 
-- (JJCommentInputView *)commentInputView{
-    if(!_commentInputView){
-        _commentInputView = [[JJCommentInputView alloc] initWithFrame:CGRectZero];
-    }
-    return _commentInputView;
-}
+//- (JJCommentInputView *)commentInputView{
+//    if(!_commentInputView){
+//        _commentInputView = [[JJCommentInputView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 60.0f)];
+//    }
+//    return _commentInputView;
+//}
 
 
 @end

@@ -14,7 +14,7 @@
 @synthesize  commentTableView = _commentTableView;
 @synthesize selecteTopicFrame = _selecteTopicFrame;
 @synthesize decorateHeader = _decorateHeader;
-//@synthesize inputPanelView = _inputPanelView;
+@synthesize commentInputView = _commentInputView;
 
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -32,6 +32,9 @@
 - (void)commonInitlization{
     [self addSubview:self.decorateHeader];
     [self addSubview:self.commentTableView];
+    [self addSubview:self.commentInputView];
+    // 放到前面来
+    [self.commentInputView bringSubviewToFront:self.commentTableView];
 }
 
 
@@ -44,8 +47,15 @@
     }];
     
     [self.commentTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(30);
-        make.left.bottom.right.equalTo(self);
+        make.top.equalTo(self.decorateHeader.mas_bottom);
+        make.left.right.equalTo(self);
+        make.bottom.equalTo(self);
+    }];
+    
+    [self.commentInputView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(self);
+        make.bottom.mas_equalTo(self.mas_bottom);
+        make.height.mas_equalTo(60.0f);
     }];
 }
 
@@ -109,17 +119,17 @@
 
 - (JJCommentDecorateHeader *)decorateHeader{
     if(!_decorateHeader){
-        _decorateHeader = [[JJCommentDecorateHeader alloc] init];
+        _decorateHeader = [[JJCommentDecorateHeader alloc] initWithFrame:CGRectZero];
     }
     return _decorateHeader;
 }
 
-//- (JJCommentInputView *)inputPanelView{
-//    if(!_inputPanelView){
-//        _inputPanelView = [[JJCommentInputView alloc] init];
-//    }
-//    return _inputPanelView;
-//}
+- (JJCommentInputView *)commentInputView{
+    if(!_commentInputView){
+        _commentInputView = [[JJCommentInputView alloc] initWithFrame:CGRectZero];
+    }
+    return _commentInputView;
+}
 
 // 上拉刷新
 - (void)loadData{
