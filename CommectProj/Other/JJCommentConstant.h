@@ -86,6 +86,9 @@ UIKIT_EXTERN CGFloat const JJGlobalBottomLineHeight;
 /**  评论内容字体大小 */
 #define JJCommentTextFont JJMediumFont(12.0f)
 
+/** 加粗字体 **/
+#define JJBlodFont(__px) [UIFont fontWithName:@"Helvetica-Bold" size:__px];
+
 @interface JJCommentConstant : NSObject
 
 @end

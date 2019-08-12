@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2127141E8B7BEFE3A0D6B7E0 /* libPods-CommectProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1DBEEF9BE9CFEEEF43B9CA /* libPods-CommectProj.a */; };
+		E50B2FF52300FF4700F63471 /* JJCommentDecorateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E50B2FF42300FF4700F63471 /* JJCommentDecorateHeader.m */; };
 		E51ABA5F22F94D7500449075 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA5E22F94D7500449075 /* AppDelegate.m */; };
 		E51ABA6222F94D7500449075 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA6122F94D7500449075 /* ViewController.m */; };
 		E51ABA6522F94D7500449075 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E51ABA6322F94D7500449075 /* Main.storyboard */; };
@@ -38,6 +39,8 @@
 /* Begin PBXFileReference section */
 		5D1DBEEF9BE9CFEEEF43B9CA /* libPods-CommectProj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CommectProj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3392995815E0B548D2EA5E6 /* Pods-CommectProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommectProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommectProj/Pods-CommectProj.debug.xcconfig"; sourceTree = "<group>"; };
+		E50B2FF32300FF4700F63471 /* JJCommentDecorateHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJCommentDecorateHeader.h; sourceTree = "<group>"; };
+		E50B2FF42300FF4700F63471 /* JJCommentDecorateHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJCommentDecorateHeader.m; sourceTree = "<group>"; };
 		E51ABA5A22F94D7500449075 /* CommectProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommectProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E51ABA5D22F94D7500449075 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E51ABA5E22F94D7500449075 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -193,6 +196,8 @@
 				E54797CF22FD55D300040E04 /* JJTopicHeaderView.m */,
 				E54797D122FD642B00040E04 /* JJTopicFooterView.h */,
 				E54797D222FD642B00040E04 /* JJTopicFooterView.m */,
+				E50B2FF32300FF4700F63471 /* JJCommentDecorateHeader.h */,
+				E50B2FF42300FF4700F63471 /* JJCommentDecorateHeader.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,6 +352,7 @@
 				E54797D022FD55D300040E04 /* JJTopicHeaderView.m in Sources */,
 				E51ABA7522F94D9500449075 /* CommentView.m in Sources */,
 				E51ABA8922F9832D00449075 /* JJComment.m in Sources */,
+				E50B2FF52300FF4700F63471 /* JJCommentDecorateHeader.m in Sources */,
 				E51ABA5F22F94D7500449075 /* AppDelegate.m in Sources */,
 				E51ABA7922F9734800449075 /* JJCommentModel.m in Sources */,
 				E51ABA8022F97C8500449075 /* JJCommentInputView.m in Sources */,

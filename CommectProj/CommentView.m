@@ -13,6 +13,7 @@
 @implementation CommentView
 @synthesize  commentTableView = _commentTableView;
 @synthesize selecteTopicFrame = _selecteTopicFrame;
+@synthesize decorateHeader = _decorateHeader;
 
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -28,6 +29,7 @@
 }
 
 - (void)commonInitlization{
+    [self addSubview:self.decorateHeader];
     [self addSubview:self.commentTableView];
 }
 
@@ -35,8 +37,14 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
+    [self.decorateHeader mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(self);
+        make.height.mas_equalTo(25);
+    }];
+    
     [self.commentTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.bottom.right.equalTo(self);
+        make.top.equalTo(self).offset(30);
+        make.left.bottom.right.equalTo(self);
     }];
 }
 
@@ -96,6 +104,13 @@
     }
     
     return _commentTableView;
+}
+
+- (JJCommentDecorateHeader *)decorateHeader{
+    if(!_decorateHeader){
+        _decorateHeader = [[JJCommentDecorateHeader alloc] init];
+    }
+    return _decorateHeader;
 }
 
 // 上拉刷新
