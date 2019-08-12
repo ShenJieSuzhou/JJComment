@@ -22,11 +22,12 @@
 @implementation ViewController
 @synthesize topicFrames = _topicFrames;
 @synthesize commentView = _commentView;
+@synthesize commentInputView = _commentInputView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.title = @"评论";
     self.topicFrames = [[NSMutableArray alloc] init];
 
     // 测试数据
@@ -142,7 +143,19 @@
     [self.commentView setDataSource:self.topicFrames];
     // 添加评论视图
     [self.view addSubview:self.commentView];
+    
+//    [self.view addSubview:self.commentInputView];
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    [window addSubview:self.commentInputView];
 }
+
+- (void)viewWillLayoutSubviews{
+//    [self.commentInputView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.bottom.mas_offset(self);
+//
+//    }];
+}
+
 
 - (JJTopicFrame *)topicFrameWithTopic:(JJTopic *)topic{
     if(topic.commentsCount > 2){
@@ -166,10 +179,17 @@
 - (CommentView *)commentView{
     if(!_commentView){
         _commentView = [CommentView new];
-        [_commentView setFrame:self.view.frame];
+        [_commentView setFrame:CGRectMake(0, getNavAndStatusHight, self.view.frame.size.width, self.view.frame.size.height - getNavAndStatusHight)];
     }
     
     return _commentView;
+}
+
+- (JJCommentInputView *)commentInputView{
+    if(!_commentInputView){
+        _commentInputView = [[JJCommentInputView alloc] initWithFrame:CGRectZero];
+    }
+    return _commentInputView;
 }
 
 

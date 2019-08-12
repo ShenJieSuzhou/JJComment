@@ -14,6 +14,7 @@
 @synthesize  commentTableView = _commentTableView;
 @synthesize selecteTopicFrame = _selecteTopicFrame;
 @synthesize decorateHeader = _decorateHeader;
+//@synthesize inputPanelView = _inputPanelView;
 
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -113,6 +114,13 @@
     return _decorateHeader;
 }
 
+//- (JJCommentInputView *)inputPanelView{
+//    if(!_inputPanelView){
+//        _inputPanelView = [[JJCommentInputView alloc] init];
+//    }
+//    return _inputPanelView;
+//}
+
 // 上拉刷新
 - (void)loadData{
     [self.commentTableView.mj_header endRefreshing];
@@ -146,47 +154,47 @@
 //}
 
 // 回复评论
-- (void)replyCommentWithCommentReply:(JJCommentReplay *)commentReply{
-    JJCommentInputView *inputView = [[JJCommentInputView alloc] initWithFrame:CGRectMake(0, 0, JJMainScreenWidth, 80.0f)];
-    inputView.commentReply = commentReply;
-    inputView.delegate = self;
-    [inputView show];
-    
-    self.inputPanelView = inputView;
-}
+//- (void)replyCommentWithCommentReply:(JJCommentReplay *)commentReply{
+//    JJCommentInputView *inputView = [[JJCommentInputView alloc] initWithFrame:CGRectMake(0, 0, JJMainScreenWidth, 80.0f)];
+//    inputView.commentReply = commentReply;
+//    inputView.delegate = self;
+//    [inputView show];
+//
+//    self.inputPanelView = inputView;
+//}
 
 
 #pragma mark - JJCommentInputViewDelegate
-- (void)commentInputView:(JJCommentInputView *)inputPanelView attributedText:(NSString *)attributedText{
-    // 发送评论
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.25f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-       
-        JJComment *comment = [JJComment new];
-        comment.postId = self.postId;
-        comment.commentId = [NSString stringWithFormat:@"%zd", [self mh_randomNumber:0 to:100]];
-        comment.text = attributedText;
-        comment.createTime = [NSDate jj_currentTimestamp];
-        
-        JJUser *fromUser = [[JJUser alloc] init];
-        fromUser.userId = @"111111111";
-        fromUser.nickname = @"乔布斯";
-        fromUser.avatarUrl = @"test";
-        
-        if(inputPanelView.commentReply.isReply){
-            JJUser *toUser = [[JJUser alloc] init];
-            toUser.avatarUrl = inputPanelView.commentReply.user.avatarUrl;
-            toUser.userId = inputPanelView.commentReply.user.userId;
-            toUser.nickname = inputPanelView.commentReply.user.nickname;
-            comment.toUser = toUser;
-        }
-        
-//        self.selecteTopicFrame.topic
-        
-        // 发送评论 回复通知
-        
-        
-    });
-}
+//- (void)commentInputView:(JJCommentInputView *)inputPanelView attributedText:(NSString *)attributedText{
+//    // 发送评论
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.25f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+//        JJComment *comment = [JJComment new];
+//        comment.postId = self.postId;
+//        comment.commentId = [NSString stringWithFormat:@"%zd", [self mh_randomNumber:0 to:100]];
+//        comment.text = attributedText;
+//        comment.createTime = [NSDate jj_currentTimestamp];
+//
+//        JJUser *fromUser = [[JJUser alloc] init];
+//        fromUser.userId = @"111111111";
+//        fromUser.nickname = @"乔布斯";
+//        fromUser.avatarUrl = @"test";
+//
+//        if(inputPanelView.commentReply.isReply){
+//            JJUser *toUser = [[JJUser alloc] init];
+//            toUser.avatarUrl = inputPanelView.commentReply.user.avatarUrl;
+//            toUser.userId = inputPanelView.commentReply.user.userId;
+//            toUser.nickname = inputPanelView.commentReply.user.nickname;
+//            comment.toUser = toUser;
+//        }
+//
+////        self.selecteTopicFrame.topic
+//
+//        // 发送评论 回复通知
+//
+//
+//    });
+//}
 
 - (NSInteger) mh_randomNumber:(NSInteger)from to:(NSInteger)to
 {
@@ -265,7 +273,7 @@
         JJCommentReplay *commentReply = [[JJTopicManager shareInstance] commentReplyWithModel:commentFrame.comment];
         
         //  显示回复
-        [self replyCommentWithCommentReply:commentReply];
+//        [self replyCommentWithCommentReply:commentReply];
     }
 }
 

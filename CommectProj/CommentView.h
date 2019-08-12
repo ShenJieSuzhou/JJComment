@@ -15,7 +15,6 @@
 #import "JJCommentConstant.h"
 #import "JJCommentReplay.h"
 #import "JJTopicManager.h"
-#import "JJCommentInputView.h"
 #import "JJUser.h"
 #import "JJTopicHeaderView.h"
 #import "JJTopicFooterView.h"
@@ -23,7 +22,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CommentView : UIView<UITableViewDelegate, UITableViewDataSource, JJCommentCellDelegate, JJCommentInputViewDelegate, JJTopicHeaderViewDelegate>
+@interface CommentView : UIView<UITableViewDelegate, UITableViewDataSource, JJCommentCellDelegate, JJTopicHeaderViewDelegate>
 
 @property (nonatomic, strong) JJCommentDecorateHeader *decorateHeader;
 
@@ -32,8 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray *dataSource;
 
 @property (nonatomic, strong) JJTopicFrame *selecteTopicFrame;
-
-@property (nonatomic, weak) JJCommentInputView *inputPanelView;
 
 @property (nonatomic, copy) NSString *postId;
 

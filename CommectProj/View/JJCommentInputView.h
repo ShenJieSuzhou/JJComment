@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "JJCommentReplay.h"
+#import <YYText/YYText.h>
+#import <YYText/YYTextView.h>
+#import <Masonry/Masonry.h>
+#import "JJCommentConstant.h"
+#import "JJTopicManager.h"
 
 @class JJCommentInputView;
 
@@ -17,7 +22,33 @@
 @end
 
 
-@interface JJCommentInputView : UIView
+@interface JJCommentInputView : UIView<YYTextViewDelegate>
+
+/** 底部工具条 */
+@property (nonatomic , weak) UIView *bottomToolBar;
+
+@property (nonatomic, strong) UIView *bottomView;
+
+/** 头像 */
+@property (nonatomic , weak) UIImageView *avatarView;
+
+@property (nonatomic, strong) YYLabel *commentLabel;
+
+@property (nonatomic, strong) UIView *topView;
+
+@property (nonatomic, strong) YYTextView *textView;
+
+// 当前字数
+@property (nonatomic , strong) YYLabel *words;
+
+/** 记录之前编辑框的高度 */
+@property (nonatomic , assign) CGFloat previousTextViewContentHeight;
+
+/** 记录键盘的高度 */
+@property (nonatomic , assign) CGFloat keyboardHeight;
+
+/** cacheText */
+@property (nonatomic , copy) NSString *cacheText;
 
 /** 回复评论 */
 @property (nonatomic , strong) JJCommentReplay *commentReply;

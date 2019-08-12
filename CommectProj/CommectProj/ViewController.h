@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "CommentView.h"
+#import "JJCommentInputView.h"
 
 @interface ViewController : UIViewController
 
 @property(nonatomic, strong) CommentView *commentView;
 
 // 评论框
+@property(nonatomic, strong) JJCommentInputView *commentInputView;
 
 @end
 
