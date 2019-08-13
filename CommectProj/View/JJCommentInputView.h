@@ -29,11 +29,6 @@
 
 @property (nonatomic, strong) UIView *bottomView;
 
-/** 头像 */
-@property (nonatomic , weak) UIImageView *avatarView;
-
-@property (nonatomic, strong) YYLabel *commentLabel;
-
 @property (nonatomic, strong) UIView *topView;
 
 @property (nonatomic, strong) YYTextView *textView;

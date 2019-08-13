@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2127141E8B7BEFE3A0D6B7E0 /* libPods-CommectProj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1DBEEF9BE9CFEEEF43B9CA /* libPods-CommectProj.a */; };
 		E50B2FF52300FF4700F63471 /* JJCommentDecorateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E50B2FF42300FF4700F63471 /* JJCommentDecorateHeader.m */; };
+		E50B2FF9230291EE00F63471 /* JJCommentDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E50B2FF8230291EE00F63471 /* JJCommentDetailController.m */; };
+		E50B2FFC2302BAC300F63471 /* JJCommentContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E50B2FFB2302BAC300F63471 /* JJCommentContainerView.m */; };
+		E50B2FFF2302BFA200F63471 /* CommentCountView.m in Sources */ = {isa = PBXBuildFile; fileRef = E50B2FFE2302BFA200F63471 /* CommentCountView.m */; };
 		E51ABA5F22F94D7500449075 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA5E22F94D7500449075 /* AppDelegate.m */; };
 		E51ABA6222F94D7500449075 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA6122F94D7500449075 /* ViewController.m */; };
 		E51ABA6522F94D7500449075 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E51ABA6322F94D7500449075 /* Main.storyboard */; };
@@ -41,6 +44,12 @@
 		A3392995815E0B548D2EA5E6 /* Pods-CommectProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommectProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CommectProj/Pods-CommectProj.debug.xcconfig"; sourceTree = "<group>"; };
 		E50B2FF32300FF4700F63471 /* JJCommentDecorateHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJCommentDecorateHeader.h; sourceTree = "<group>"; };
 		E50B2FF42300FF4700F63471 /* JJCommentDecorateHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJCommentDecorateHeader.m; sourceTree = "<group>"; };
+		E50B2FF7230291EE00F63471 /* JJCommentDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJCommentDetailController.h; sourceTree = "<group>"; };
+		E50B2FF8230291EE00F63471 /* JJCommentDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJCommentDetailController.m; sourceTree = "<group>"; };
+		E50B2FFA2302BAC300F63471 /* JJCommentContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJCommentContainerView.h; sourceTree = "<group>"; };
+		E50B2FFB2302BAC300F63471 /* JJCommentContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJCommentContainerView.m; sourceTree = "<group>"; };
+		E50B2FFD2302BFA200F63471 /* CommentCountView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCountView.h; sourceTree = "<group>"; };
+		E50B2FFE2302BFA200F63471 /* CommentCountView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCountView.m; sourceTree = "<group>"; };
 		E51ABA5A22F94D7500449075 /* CommectProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommectProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E51ABA5D22F94D7500449075 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E51ABA5E22F94D7500449075 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -121,9 +130,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E50B2FF6230291BA00F63471 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E50B2FF7230291EE00F63471 /* JJCommentDetailController.h */,
+				E50B2FF8230291EE00F63471 /* JJCommentDetailController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		E51ABA5122F94D7500449075 = {
 			isa = PBXGroup;
 			children = (
+				E50B2FF6230291BA00F63471 /* Controller */,
 				E51ABA9522FA9D6600449075 /* JJTopicManager.h */,
 				E51ABA9622FA9D6600449075 /* JJTopicManager.m */,
 				E51ABA8B22F9853300449075 /* Other */,
@@ -198,6 +217,10 @@
 				E54797D222FD642B00040E04 /* JJTopicFooterView.m */,
 				E50B2FF32300FF4700F63471 /* JJCommentDecorateHeader.h */,
 				E50B2FF42300FF4700F63471 /* JJCommentDecorateHeader.m */,
+				E50B2FFA2302BAC300F63471 /* JJCommentContainerView.h */,
+				E50B2FFB2302BAC300F63471 /* JJCommentContainerView.m */,
+				E50B2FFD2302BFA200F63471 /* CommentCountView.h */,
+				E50B2FFE2302BFA200F63471 /* CommentCountView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -338,16 +361,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E50B2FFF2302BFA200F63471 /* CommentCountView.m in Sources */,
 				E51ABA6222F94D7500449075 /* ViewController.m in Sources */,
 				E54797C422FBC92300040E04 /* JJUser.m in Sources */,
 				E54797CD22FD46BA00040E04 /* NSString+JJSize.m in Sources */,
 				E54797C722FBF29000040E04 /* UIFont+JJExtension.m in Sources */,
+				E50B2FF9230291EE00F63471 /* JJCommentDetailController.m in Sources */,
 				E51ABA8322F980C500449075 /* JJCommentCell.m in Sources */,
 				E51ABA7C22F97C2300449075 /* JJTopicFrame.m in Sources */,
 				E54797CA22FC0C1A00040E04 /* Works.m in Sources */,
 				E51ABA9722FA9D6600449075 /* JJTopicManager.m in Sources */,
 				E54797C122FBC4A300040E04 /* NSDate+Extension.m in Sources */,
 				E51ABA6D22F94D7600449075 /* main.m in Sources */,
+				E50B2FFC2302BAC300F63471 /* JJCommentContainerView.m in Sources */,
 				E51ABA8E22F9855200449075 /* JJCommentConstant.m in Sources */,
 				E54797D022FD55D300040E04 /* JJTopicHeaderView.m in Sources */,
 				E51ABA7522F94D9500449075 /* CommentView.m in Sources */,

@@ -9,12 +9,14 @@
 #import "CommentView.h"
 #import "NSDate+Extension.h"
 #import <MJRefresh/MJRefresh.h>
+#import "JJCommentDetailController.h"
 
 @implementation CommentView
 @synthesize  commentTableView = _commentTableView;
 @synthesize selecteTopicFrame = _selecteTopicFrame;
 @synthesize decorateHeader = _decorateHeader;
 @synthesize commentInputView = _commentInputView;
+@synthesize delegate = _delegate;
 
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -150,14 +152,14 @@
 //}
 
 // 回复评论
-//- (void)replyCommentWithCommentReply:(JJCommentReplay *)commentReply{
-//    JJCommentInputView *inputView = [[JJCommentInputView alloc] initWithFrame:CGRectMake(0, 0, JJMainScreenWidth, 80.0f)];
-//    inputView.commentReply = commentReply;
-//    inputView.delegate = self;
-//    [inputView show];
-//
-//    self.inputPanelView = inputView;
-//}
+- (void)replyCommentWithCommentReply:(JJCommentReplay *)commentReply{
+    JJCommentInputView *inputView = [[JJCommentInputView alloc] initWithFrame:CGRectMake(0, 0, JJMainScreenWidth, 80.0f)];
+    inputView.commentReply = commentReply;
+    inputView.delegate = self;
+    [inputView show];
+
+    self.inputPanelView = inputView;
+}
 
 
 #pragma mark - JJCommentInputViewDelegate
@@ -258,18 +260,18 @@
         
         if([commentFrame.comment.commentId isEqualToString:@"AllComment"]){
             // 跳转到更多评论
+            [_delegate jumpToCommemtDetailView:topicFrame];
             return;
         }
         
-        
         //回复自己则忽略
-//        if()
+//        if([commentFrame.comment.fromUser.userId isEqualToString:@"own"]){
+//            return;
+//        }
         
         //回复评论
         JJCommentReplay *commentReply = [[JJTopicManager shareInstance] commentReplyWithModel:commentFrame.comment];
-        
-        //  显示回复
-//        [self replyCommentWithCommentReply:commentReply];
+        [self replyCommentWithCommentReply:commentReply];
     }
 }
 

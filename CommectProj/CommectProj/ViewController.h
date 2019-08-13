@@ -10,7 +10,7 @@
 #import "CommentView.h"
 
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<CommentViewDelegate>
 
 @property(nonatomic, strong) CommentView *commentView;
 

@@ -23,6 +23,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol CommentViewDelegate <NSObject>
+
+- (void)jumpToCommemtDetailView:(JJTopicFrame *)topicFrame;
+
+@end
+
 @interface CommentView : UIView<UITableViewDelegate, UITableViewDataSource, JJCommentCellDelegate, JJTopicHeaderViewDelegate>
 
 @property (nonatomic, strong) JJCommentDecorateHeader *decorateHeader;
@@ -35,7 +41,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSString *postId;
 // 评论框
-@property(nonatomic, strong) JJCommentInputView *commentInputView;
+@property (nonatomic, strong) JJCommentInputView *commentInputView;
+
+@property (nonatomic, weak) id<CommentViewDelegate> delegate;
 
 @end
 

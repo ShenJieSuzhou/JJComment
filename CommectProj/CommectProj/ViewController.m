@@ -12,6 +12,7 @@
 #import "JJTopic.h"
 #import "NSDate+Extension.h"
 #import "JJTopicFrame.h"
+#import "JJCommentDetailController.h"
 
 @interface ViewController ()
 
@@ -185,6 +186,11 @@
 //    }
 //    return _commentInputView;
 //}
+
+- (void)jumpToCommemtDetailView:(JJTopicFrame *)topicFrame{
+    JJCommentDetailController *detailComment = [JJCommentDetailController new];
+    [self.navigationController pushViewController:detailComment animated:YES];
+}
 
 
 @end

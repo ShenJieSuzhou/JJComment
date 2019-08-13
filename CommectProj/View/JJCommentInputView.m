@@ -26,7 +26,7 @@
 
 - (void)commonInitlizatiion{
     // 添加通知中心
-//    [self addNotificationCenter];
+    [self addNotificationCenter];
     
     self.backgroundColor = [UIColor clearColor];
 
@@ -47,24 +47,6 @@
     [self.bottomToolBar addSubview:topView];
     self.topView = topView;
 
-////    CGFloat avatarWH = 20.f;
-////    // 头像
-////    UIImageView *avatarView = [UIImageView new];
-////    avatarView.image = [UIImage imageNamed:@"mh_defaultAvatar"];
-////    avatarView.layer.cornerRadius = avatarWH *.5f;
-////    avatarView.layer.masksToBounds = YES;
-////    self.avatarView = avatarView;
-////    [topView addSubview:avatarView];
-//
-////    // 评论
-////    YYLabel *commentLabel = [[YYLabel alloc] init];
-////    commentLabel.textColor = [UIColor grayColor];
-////    commentLabel.textAlignment = NSTextAlignmentLeft;
-////    commentLabel.font = [UIFont systemFontOfSize:11.0f];
-////    commentLabel.textColor = [UIColor grayColor];
-////    self.commentLabel = commentLabel;
-////    [topView addSubview:commentLabel];
-//
     // textView
     YYTextView *textView = [[YYTextView alloc] init];
     textView.font = JJReguFont(13.0f);
@@ -113,22 +95,6 @@
         make.left.top.and.right.equalTo(self.bottomToolBar);
         make.height.mas_equalTo(10);
     }];
-    
-//    // 布局头像
-//    CGFloat avatarWH = JJPxConvertPt(20.0f);
-//    [self.avatarView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.width.and.height.mas_equalTo(avatarWH);
-//        make.left.equalTo(self.topView).with.offset(JJPxConvertPt(10.0f));
-//        make.centerY.equalTo(self.topView);
-//
-//    }];
-    
-//    // 布局评论
-//    [self.commentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.avatarView.mas_right).with.offset(JJPxConvertPt(5.0f));
-//        make.right.equalTo(self.topView).with.offset(JJPxConvertPt(-19.0f));
-//        make.top.and.bottom.equalTo(self.topView);
-//    }];
     
     // 布局textView
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -195,20 +161,15 @@
     [self.textView resignFirstResponder];
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.35f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-
         // 从父控件移除
         [self removeFromSuperview];
-
     });
 }
 
 - (void)setCommentReply:(JJCommentReplay *)commentReply{
     _commentReply = commentReply;
-    // 设置数据
-    // 设置头像
-    self.commentLabel.text = commentReply.text;
     // 设置placeholder
-    self.textView.placeholderText = [NSString stringWithFormat:@"回复%@", @"沈杰"];
+    self.textView.placeholderText = [NSString stringWithFormat:@"回复%@", commentReply.user.nickname];
     // 设置text
     // 获取缓存text
     self.cacheText = [[JJTopicManager shareInstance].replyDictionary objectForKey:commentReply.commentReplyId];
@@ -236,8 +197,7 @@
 #pragma mark - 事件处理
 /** 监听键盘的弹出和隐藏
  */
-- (void)keyboardWillChangeFrame:(NSNotification *)notification
-{
+- (void)keyboardWillChangeFrame:(NSNotification *)notification{
     NSDictionary *userInfo = notification.userInfo;
 
     // 最终尺寸
@@ -263,19 +223,15 @@
 
 
 #pragma mark - 代理
-- (void)textViewDidChange:(YYTextView *)textView
-{
+- (void)textViewDidChange:(YYTextView *)textView{
     // 改变高度
     [self bottomToolBarWillChangeHeight:[self getTextViewHeight:textView]];
-
     // 设置提醒文字
     [self textViewWordsDidChange:textView];
-
 }
 
 
-- (BOOL)textView:(YYTextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{
+- (BOOL)textView:(YYTextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     if ([text isEqualToString:@"\n"]){ //判断输入的字是否是回车，即按下return
         //在这里做你响应return键的代码
 
@@ -290,49 +246,41 @@
 
 #pragma mark - 辅助方法
 /** 键盘改变  后期于鏊考虑表情键盘 */
-- (void)willShowKeyboardWithFromFrame:(CGRect)fromFrame toFrame:(CGRect)toFrame
-{
-
-    if (fromFrame.origin.y == [[UIScreen mainScreen] bounds].size.height)
-    {
+- (void)willShowKeyboardWithFromFrame:(CGRect)fromFrame toFrame:(CGRect)toFrame{
+    if (fromFrame.origin.y == [[UIScreen mainScreen] bounds].size.height){
         // 键盘弹起
         // bottomToolBar距离底部的高度
-        [self _bottomToolBarWillChangeBottomHeight:toFrame.size.height];
+        [self bottomToolBarWillChangeBottomHeight:toFrame.size.height];
 
-    }else if (toFrame.origin.y == [[UIScreen mainScreen] bounds].size.height)
-    {
+    }else if (toFrame.origin.y == [[UIScreen mainScreen] bounds].size.height){
         // 键盘落下
         // bottomToolBar距离底部的高度
-        [self _bottomToolBarWillChangeBottomHeight:0];
+        [self bottomToolBarWillChangeBottomHeight:0];
 
-    }else
-    {
+    }else{
         // bottomToolBar距离底部的高度
-        [self _bottomToolBarWillChangeBottomHeight:toFrame.size.height];
+        [self bottomToolBarWillChangeBottomHeight:toFrame.size.height];
     }
 }
 
 /** 距离控制器底部的高度 */
-- (void)_bottomToolBarWillChangeBottomHeight:(CGFloat)bottomHeight
-{
+- (void)bottomToolBarWillChangeBottomHeight:(CGFloat)bottomHeight{
     // 记录键盘的高度
     self.keyboardHeight = bottomHeight;
 
     // fix 掉键盘落下 输入框还没落下的bug 键盘掉下的bug
-    if (bottomHeight<=0) {
+    if (bottomHeight <= 0) {
         bottomHeight = -1 * JJMainScreenHeight;
     }
+    
     // 之前bottomToolBar的尺寸
     [self.bottomToolBar mas_updateConstraints:^(MASConstraintMaker *make) {
-
         // 设置高度
         make.bottom.equalTo(self).with.offset(-1 * bottomHeight);
     }];
 
-
     // 键盘高度改变了也要去查看一下bottomToolBar的布局
     [self bottomToolBarWillChangeHeight:[self getTextViewHeight:self.textView]];
-
 
     // tell constraints they need updating
     [self setNeedsUpdateConstraints];
@@ -389,8 +337,7 @@
 }
 
 /** textView文字发生改变 */
-- (void)textViewWordsDidChange:(YYTextView *)textView
-{
+- (void)textViewWordsDidChange:(YYTextView *)textView{
     NSString *text = [NSString stringWithFormat:@"%zd/%zd",textView.attributedText.length , JJCommentMaxWords];
     UIFont *font = [UIFont systemFontOfSize:10.0f];
     UIColor *color = textView.attributedText.length <= 300 ? [UIColor grayColor] : [UIColor redColor];
@@ -403,8 +350,7 @@
 }
 
 /** 发送 */
-- (void)send
-{
+- (void)send{
     if (self.textView.attributedText.length==0) {
 //        [MBProgressHUD mh_showTips:@"回复内容不能为空"];
         return;
