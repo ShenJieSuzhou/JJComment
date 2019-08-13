@@ -172,7 +172,8 @@
 - (CommentView *)commentView{
     if(!_commentView){
         _commentView = [[CommentView alloc] initWithFrame:CGRectZero];
-        [_commentView setFrame:CGRectMake(0, getNavAndStatusHight, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - getNavAndStatusHight)];
+        CGFloat offset = getNavAndStatusHight;
+        [_commentView setFrame:CGRectMake(0, offset, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - offset)];
     }
     
     return _commentView;

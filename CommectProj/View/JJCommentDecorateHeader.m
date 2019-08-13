@@ -14,8 +14,8 @@
 @synthesize titleLabel = _titleLabel;
 @synthesize cubeView = _cubeView;
 
--(instancetype)init{
-    self = [super init];
+-(instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
     if(self){
         [self commonInitlization];
     }
@@ -41,14 +41,15 @@
     [super layoutSubviews];
     
     [self.cubeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.mas_equalTo(self);
         make.left.mas_equalTo(self).offset(10);
         make.height.mas_equalTo(self);
-        make.width.mas_equalTo(8);
+        make.width.mas_equalTo(5);
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self).offset(25);
-        make.width.mas_equalTo(self);
+        make.left.mas_equalTo(self).offset(20);
+        make.width.mas_equalTo(100);
         make.centerY.mas_equalTo(self);
     }];
 }

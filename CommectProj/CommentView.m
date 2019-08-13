@@ -37,13 +37,12 @@
     [self.commentInputView bringSubviewToFront:self.commentTableView];
 }
 
-
 - (void)layoutSubviews{
     [super layoutSubviews];
     
     [self.decorateHeader mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self);
-        make.height.mas_equalTo(25);
+        make.size.mas_equalTo(CGSizeMake([UIScreen mainScreen].bounds.size.width, 25.0f));
     }];
     
     [self.commentTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -88,19 +87,6 @@
 - (void)likeSuccess:(NSNotificationCenter *)note{
 
 }
-
-
-/**
- 评论的数据容器
-
- @return 评论
- */
-//- (NSMutableArray *)dataSource{
-//    if(_dataSource == nil){
-//        _dataSource = [[NSMutableArray alloc] init];
-//    }
-//    return _dataSource;
-//}
 
 - (UITableView *)commentTableView{
     if(!_commentTableView){
@@ -294,7 +280,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
     self.commentTableView.mj_footer.hidden = self.dataSource.count < JJCommentMaxCount;
     
     id model = self.dataSource[section];
