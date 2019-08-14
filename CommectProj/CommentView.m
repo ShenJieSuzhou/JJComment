@@ -178,8 +178,12 @@
 }
 
 #pragma mark - JJCommentInputViewDelegate
-- (void)commentInputView:(JJCommentInputView *)inputPanelView attributedText:(NSString *)attributedText{
-    
+- (void)commentInputView:(JJCommentInputView *)inputPanelView attributedText:(NSString *)attributedText reply:(BOOL)isReply{
+    if(isReply){
+        
+    }else{
+        
+    }
 }
 
 #pragma mark - JJCommentContainerViewDelegate

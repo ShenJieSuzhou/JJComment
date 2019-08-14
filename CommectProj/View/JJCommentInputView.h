@@ -18,7 +18,7 @@
 
 @protocol JJCommentInputViewDelegate <NSObject>
 @optional
-- (void)commentInputView:(JJCommentInputView *)inputPanelView attributedText:(NSString *)attributedText;
+- (void)commentInputView:(JJCommentInputView *)inputPanelView attributedText:(NSString *)attributedText reply:(BOOL)isReply;
 @end
 
 

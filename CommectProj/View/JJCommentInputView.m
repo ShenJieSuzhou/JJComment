@@ -397,9 +397,13 @@
         return;
     }
 
-    if (self.delegate && [self.delegate respondsToSelector:@selector(commentInputView:attributedText:)]) {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(commentInputView:attributedText:reply:)]) {
         // 把内容调回去
-        [self.delegate commentInputView:self attributedText:self.textView.text];
+        if(self.commentReply){
+            [self.delegate commentInputView:self attributedText:self.textView.text reply:YES];
+        }else{
+            [self.delegate commentInputView:self attributedText:self.textView.text reply:NO];
+        }
     }
 
     // 隐藏
