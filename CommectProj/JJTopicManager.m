@@ -35,12 +35,32 @@
     // 回复模型
     JJCommentReplay *commentReply = [[JJCommentReplay alloc] init];
     
-    if([model isKindOfClass:[JJComment class]]){
+    if([model isKindOfClass:[JJTopic class]]){
+        // 观点
+        JJTopic *topic = (JJTopic *)model;
+        commentReply.postId = topic.postId;
+        commentReply.commentReplyId = topic.topicID;
+        commentReply.text = topic.text;
+        commentReply.isReply = NO;
+        JJUser *user = [[JJUser alloc] init];
+        user.nickname = topic.user.nickname;
+        user.avatarUrl = topic.user.avatarUrl;
+        user.userId = topic.user.userId;
+        commentReply.user = user;
+        
+        return commentReply;
+    }else if([model isKindOfClass:[JJComment class]]){
         JJComment *comment = (JJComment *)model;
         commentReply.text = comment.text;
         commentReply.postId = comment.postId;
+        commentReply.commentReplyId = comment.commentId;
         commentReply.isReply = YES;
         // 评论人
+        JJUser *user = [[JJUser alloc] init];
+        user.nickname = comment.fromUser.nickname;
+        user.avatarUrl = comment.fromUser.avatarUrl;
+        user.userId = comment.fromUser.userId;
+        commentReply.user = user;
         
         return commentReply;
     }

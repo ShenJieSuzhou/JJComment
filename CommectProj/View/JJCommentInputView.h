@@ -20,6 +20,7 @@
 @optional
 - (void)commentInputView:(JJCommentInputView *)inputPanelView attributedText:(NSString *)attributedText;
 - (void)commentInputView:(JJTopicFrame *)topicFrame;
+- (void)commentInputView:(JJCommentFrame *)newCommentFrame comment:(JJComment *)comment;
 @end
 
 

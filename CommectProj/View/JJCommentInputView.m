@@ -404,7 +404,27 @@
 
     // 把内容调回去
     if(self.commentReply){
-        [self.delegate commentInputView:self attributedText:self.textView.text];
+//        [self.delegate commentInputView:self attributedText:self.textView.text];
+        JJComment *comment = [[JJComment alloc] init];
+        comment.postId = @"";
+        comment.commentId = [NSString stringWithFormat:@"%zd",[self mh_randomNumber:30 to:100]];
+        comment.text = self.textView.text;
+        comment.createTime = [NSDate jj_currentTimestamp];
+        JJUser *fromuser = [[JJUser alloc] init];
+        fromuser.avatarUrl = @"";
+        fromuser.nickname = @"乔布斯";
+        fromuser.userId = @"0001";
+        comment.fromUser = fromuser;
+        
+        if(self.commentReply.isReply){
+            JJUser *toUser = [[JJUser alloc] init];
+            toUser.avatarUrl = self.commentReply.user.avatarUrl;
+            toUser.userId = self.commentReply.user.userId;
+            toUser.nickname = self.commentReply.user.nickname;
+            comment.toUser = toUser;
+        }
+        
+        [self.delegate commentInputView:[self commentFramesWithComment:comment] comment:comment];
     }else{
         JJTopic *topic = [[JJTopic alloc] init];
         topic.postId = @"";
@@ -442,6 +462,14 @@
     JJTopicFrame *topicFrame = [[JJTopicFrame alloc] init];
     topicFrame.topic = topic;
     return topicFrame;
+}
+
+- (JJCommentFrame *)commentFramesWithComment:(JJComment *)comment{
+    JJCommentFrame *frame = [[JJCommentFrame alloc] init];
+    frame.maxW = (JJMainScreenWidth - JJTopicHorizontalSpace *3 - JJTopicAvatarWH);
+    // 传递微博模型数据，计算所有子控件的frame
+    frame.comment = comment;
+    return frame;
 }
 
 @end
