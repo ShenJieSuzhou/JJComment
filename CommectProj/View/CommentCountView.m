@@ -8,10 +8,12 @@
 
 #import "CommentCountView.h"
 #import <Masonry.h>
+#import "JJCommentConstant.h"
 
 @implementation CommentCountView
 @synthesize imageV = _imageV;
 @synthesize commentCounts = _commentCounts;
+@synthesize commentsNum = _commentsNum;
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -30,19 +32,26 @@
     [super layoutSubviews];
     
     [self.imageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.bottom.equalTo(self);
-        make.top.mas_offset(self).offset(15);
-        make.right.mas_offset(self).offset(15);
+        make.top.left.bottom.right.equalTo(self);
     }];
     
     [self.commentCounts mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+        make.top.right.equalTo(self);
+        make.left.mas_equalTo(self).offset(10.0f);
+        make.height.mas_equalTo(15);
     }];
+    
+    if(_commentsNum == 0){
+        [self.commentCounts setHidden:YES];
+    }else{
+        [self.commentCounts setHidden:NO];
+    }
 }
 
 - (UIImageView *)imageV{
     if(!_imageV){
         _imageV = [UIImageView new];
+        [_imageV setImage:[UIImage imageNamed:@"comments"]];
     }
     return _imageV;
 }
@@ -50,8 +59,19 @@
 - (YYLabel *)commentCounts{
     if(!_commentCounts){
         _commentCounts = [YYLabel new];
+        [_commentCounts setBackgroundColor:[UIColor whiteColor]];
+        _commentCounts.textColor = [UIColor redColor];
+        _commentCounts.font = JJReguFont(10.0f);
     }
     return _commentCounts;
+}
+
+- (void)setCommentsNum:(NSInteger)commentsNum{
+    if(commentsNum == 0){
+        return;
+    }
+    _commentsNum = commentsNum;
+    self.commentCounts.text = [NSString stringWithFormat:@"%zd", commentsNum];
 }
 
 @end

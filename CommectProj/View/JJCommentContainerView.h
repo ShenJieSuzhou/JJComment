@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <YYText.h>
+#import "CommentCountView.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JJCommentContainerView : UIView
@@ -18,9 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIButton *shareBtn;
 
-@property (nonatomic, strong) UIView *commentCountView;
-
-@property (nonatomic, strong) YYLabel *commentLabel;
+@property (nonatomic, strong) CommentCountView *commentCountView;
 
 @end
 

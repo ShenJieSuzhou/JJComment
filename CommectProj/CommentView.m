@@ -16,6 +16,7 @@
 @synthesize selecteTopicFrame = _selecteTopicFrame;
 @synthesize decorateHeader = _decorateHeader;
 @synthesize commentInputView = _commentInputView;
+@synthesize commentContainerV = _commentContainerV;
 @synthesize delegate = _delegate;
 
 - (id)initWithFrame:(CGRect)frame{
@@ -34,9 +35,9 @@
 - (void)commonInitlization{
     [self addSubview:self.decorateHeader];
     [self addSubview:self.commentTableView];
-    [self addSubview:self.commentInputView];
+    [self addSubview:self.commentContainerV];
     // 放到前面来
-    [self.commentInputView bringSubviewToFront:self.commentTableView];
+    [self.commentContainerV bringSubviewToFront:self.commentTableView];
 }
 
 - (void)layoutSubviews{
@@ -53,11 +54,17 @@
         make.bottom.equalTo(self);
     }];
     
-    [self.commentInputView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.commentContainerV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(self);
         make.bottom.mas_equalTo(self.mas_bottom);
-        make.height.mas_equalTo(60.0f);
+        make.height.mas_equalTo(50.0f);
     }];
+    
+//    [self.commentInputView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.mas_equalTo(self);
+//        make.bottom.mas_equalTo(self.mas_bottom);
+//        make.height.mas_equalTo(60.0f);
+//    }];
 }
 
 #pragma mark - 添加通知中心
@@ -119,6 +126,14 @@
     return _commentInputView;
 }
 
+- (JJCommentContainerView *)commentContainerV{
+    if(!_commentContainerV){
+        _commentContainerV = [[JJCommentContainerView alloc] initWithFrame:CGRectZero];
+        [_commentContainerV setCommentCount:100];
+    }
+    return _commentContainerV;
+}
+
 // 上拉刷新
 - (void)loadData{
     [self.commentTableView.mj_header endRefreshing];
@@ -153,12 +168,12 @@
 
 // 回复评论
 - (void)replyCommentWithCommentReply:(JJCommentReplay *)commentReply{
-    JJCommentInputView *inputView = [[JJCommentInputView alloc] initWithFrame:CGRectMake(0, 0, JJMainScreenWidth, 80.0f)];
-    inputView.commentReply = commentReply;
-    inputView.delegate = self;
-    [inputView show];
-
-    self.inputPanelView = inputView;
+//    JJCommentInputView *inputView = [[JJCommentInputView alloc] initWithFrame:CGRectMake(0, 0, JJMainScreenWidth, 80.0f)];
+//    inputView.commentReply = commentReply;
+//    inputView.delegate = self;
+//    [inputView show];
+//
+//    self.inputPanelView = inputView;
 }
 
 

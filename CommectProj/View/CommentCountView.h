@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) YYLabel *commentCounts;
 
+@property (nonatomic, assign) NSInteger commentsNum;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -20,6 +20,7 @@
 #import "JJTopicFooterView.h"
 #import "JJCommentDecorateHeader.h"
 #import "JJCommentInputView.h"
+#import "JJCommentContainerView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -42,6 +43,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *postId;
 // 评论框
 @property (nonatomic, strong) JJCommentInputView *commentInputView;
+
+@property (nonatomic, strong) JJCommentContainerView *commentContainerV;
 
 @property (nonatomic, weak) id<CommentViewDelegate> delegate;
 
