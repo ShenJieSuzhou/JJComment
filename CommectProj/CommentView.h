@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface CommentView : UIView<UITableViewDelegate, UITableViewDataSource, JJCommentCellDelegate, JJTopicHeaderViewDelegate>
+@interface CommentView : UIView<UITableViewDelegate, UITableViewDataSource, JJCommentCellDelegate, JJTopicHeaderViewDelegate, JJCommentContainerViewDelegate>
 
 @property (nonatomic, strong) JJCommentDecorateHeader *decorateHeader;
 

@@ -11,6 +11,13 @@
 #import "CommentCountView.h"
 NS_ASSUME_NONNULL_BEGIN
 
+@class JJCommentContainerView;
+@protocol JJCommentContainerViewDelegate <NSObject>
+@optional
+-(void)commentContaninerBtnClickAction:(JJCommentContainerView *)commentContainerView;
+
+@end
+
 @interface JJCommentContainerView : UIView
 
 @property (nonatomic, assign) NSInteger commentCount;
@@ -20,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIButton *shareBtn;
 
 @property (nonatomic, strong) CommentCountView *commentCountView;
+
+@property (nonatomic, weak) id<JJCommentContainerViewDelegate> delegate;
 
 @end
 

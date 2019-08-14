@@ -20,6 +20,7 @@
     self = [super initWithFrame:frame];
     if(self){
         [self commonInitlizatiion];
+        [self makeConstraints];
     }
     return self;
 }
@@ -32,7 +33,7 @@
 
     // 底部工具条
     UIView *bottomToolBar = [[UIView alloc] init];
-    bottomToolBar.backgroundColor = [UIColor lightGrayColor];
+    bottomToolBar.backgroundColor = [UIColor whiteColor];
     [self addSubview:bottomToolBar];
     self.bottomToolBar = bottomToolBar;
 
@@ -62,10 +63,10 @@
     textView.showsHorizontalScrollIndicator = NO;
     textView.layer.cornerRadius = [UIScreen mainScreen].bounds.size.width / 375 * 5;
     textView.layer.borderWidth = [UIScreen mainScreen].bounds.size.width / 375 * 1;
-    textView.layer.borderColor = [UIColor blackColor].CGColor;
-    textView.backgroundColor = [UIColor whiteColor];
+    textView.layer.borderColor = [UIColor clearColor].CGColor;
+    textView.backgroundColor = [UIColor grayColor];
     textView.placeholderFont = textView.font;
-    textView.placeholderTextColor = [UIColor whiteColor];
+    textView.placeholderTextColor = [UIColor lightGrayColor];
     textView.delegate = self;
     self.textView = textView;
     [self.bottomToolBar addSubview:textView];
@@ -80,16 +81,25 @@
     words.attributedText = attributedText;
     self.words = words;
     [bottomView addSubview: words];
+    
+    UIControl *backgroundControl = [[UIControl alloc] init];
+    backgroundControl.backgroundColor = JJAlphaColor(.0, .0, .0, .2);
+    [backgroundControl addTarget:self action:@selector(backgroundDidClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:backgroundControl];
+    
+    [backgroundControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
+    }];
 }
 
-- (void)layoutSubviews{
-    [super layoutSubviews];
-
+- (void)makeConstraints{
     // 布局bottomToolBar
     [self.bottomToolBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.bottom.equalTo(self);
+        make.left.and.right.equalTo(self);
+        make.bottom.equalTo(self).with.offset(JJTopicCommentToolBarMinHeight);
+        make.height.mas_equalTo(JJTopicCommentToolBarMinHeight);
     }];
-
+    
     // 布局topView
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.and.right.equalTo(self.bottomToolBar);
@@ -99,17 +109,17 @@
     // 布局textView
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.bottomToolBar.mas_left).with.offset(10.0f);
-        make.right.equalTo(self.bottomToolBar.mas_right).with.offset(-150.0f);
+        make.right.equalTo(self.bottomToolBar.mas_right).with.offset(-10.0f);
         make.top.equalTo(self.topView.mas_bottom);
         make.bottom.equalTo(self.bottomView.mas_top);
     }];
-
+    
     // 布局底部
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.bottom.right.equalTo(self.bottomToolBar);
         make.height.mas_equalTo(20);
     }];
-
+    
     // 布局字数
     [self.words mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.bottomView).with.offset(JJPxConvertPt(19.0f));
@@ -118,21 +128,26 @@
     }];
 }
 
+- (void)layoutSubviews{
+    [super layoutSubviews];
+
+}
+
 - (void)show{
-//    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-//    [window addSubview:self];
-//
-//    [self mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.mas_equalTo(UIEdgeInsetsZero);
-//    }];
-//    [self setNeedsUpdateConstraints];
-//    [self updateFocusIfNeeded];
-//    [self layoutIfNeeded];
-//
-//    // 延迟一会儿
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.15f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self.textView becomeFirstResponder];
-//    });
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    [window addSubview:self];
+
+    [self mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
+    }];
+    [self setNeedsUpdateConstraints];
+    [self updateFocusIfNeeded];
+    [self layoutIfNeeded];
+
+    // 延迟一会儿
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.15f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.textView becomeFirstResponder];
+    });
 }
 
 - (void)dismissByUser:(BOOL)state{
@@ -140,12 +155,11 @@
         // 自动消失
         if ([self.cacheText isEqualToString:self.textView.text]) {
             // 未做处理
-        }else{
+        } else {
             // 如果不一样则需要保存
-            if (self.textView.text.length==0)
-            {
+            if (self.textView.text.length == 0){
                 //输入框没做任何处理
-                if (self.cacheText.length == 0) {
+                if (self.cacheText.length == 0){
                     // 存@""值
                     [[JJTopicManager shareInstance].replyDictionary setValue:@"" forKey:self.commentReply.commentReplyId];
                 }
@@ -175,6 +189,14 @@
     self.cacheText = [[JJTopicManager shareInstance].replyDictionary objectForKey:commentReply.commentReplyId];
     // 缓存字体
     self.textView.text = self.cacheText;
+}
+
+/**
+ 背景被点击
+ */
+- (void)backgroundDidClicked:(UIControl *)sender
+{
+    [self dismissByUser:NO];
 }
 
 #pragma mark - 添加通知中心
@@ -300,7 +322,6 @@
 
 #pragma mark - 编辑框将要到那个高度
 - (void)bottomToolBarWillChangeHeight:(CGFloat)toHeight{
-    // 需要加上 MHTopicCommentToolBarWithNoTextViewHeight才是bottomToolBarHeight
     toHeight = toHeight + JJTopicCommentToolBarWithNoTextViewHeight;
 
     if (toHeight < JJTopicCommentToolBarMinHeight || self.textView.attributedText.length == 0){
@@ -317,9 +338,7 @@
 
     // 布局
     [self.bottomToolBar mas_updateConstraints:^(MASConstraintMaker *make) {
-        //
         make.height.mas_equalTo(toHeight);
-        //
     }];
 
     self.previousTextViewContentHeight = toHeight;

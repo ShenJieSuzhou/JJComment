@@ -14,6 +14,7 @@
 @synthesize commentBtn = _commentBtn;
 @synthesize shareBtn = _shareBtn;
 @synthesize commentCountView = _commentCountView;
+@synthesize delegate = _delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -86,7 +87,10 @@
 
 #pragma mark - 事件处理
 - (void)commentBtnDidClicked:(UIButton *)sender{
-
+    // 评论点击
+    if (self.delegate && [self.delegate respondsToSelector:@selector(commentContaninerBtnClickAction:)]) {
+        [self.delegate commentContaninerBtnClickAction:self];
+    }
 }
 
 @end

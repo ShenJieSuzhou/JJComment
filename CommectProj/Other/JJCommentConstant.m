@@ -12,10 +12,10 @@
 NSInteger const JJCommentMaxWords  = 300;
 
 /** 弹出评论框View最小距离 */
-CGFloat const JJTopicCommentToolBarMinHeight = 105;
+CGFloat const JJTopicCommentToolBarMinHeight = 64;
 
 /** 弹出评论框View的除了编辑框的高度 */
-CGFloat const JJTopicCommentToolBarWithNoTextViewHeight = 75;
+CGFloat const JJTopicCommentToolBarWithNoTextViewHeight = 30;
 
 /** 文本行高 */
 CGFloat const JJCommentContentLineSpacing = 10.0f;

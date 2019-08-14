@@ -74,6 +74,9 @@ UIKIT_EXTERN CGFloat const JJGlobalBottomLineHeight;
 /** 弹出评论框View距离顶部的最小高度 */
 #define JJTopicCommentToolBarMinTopInset (JJMainScreenWidth * 9.0f/16.0f + 20)
 
+// 颜色+透明度
+#define JJAlphaColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+
 /**
  *  Frame PX  ---> Pt 6的宽度 全部向下取整数
  */

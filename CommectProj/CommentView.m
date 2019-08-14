@@ -129,6 +129,7 @@
 - (JJCommentContainerView *)commentContainerV{
     if(!_commentContainerV){
         _commentContainerV = [[JJCommentContainerView alloc] initWithFrame:CGRectZero];
+        _commentContainerV.delegate = self;
         [_commentContainerV setCommentCount:100];
     }
     return _commentContainerV;
@@ -176,6 +177,15 @@
 //    self.inputPanelView = inputView;
 }
 
+#pragma mark - JJCommentContainerViewDelegate
+-(void)commentContaninerBtnClickAction:(JJCommentContainerView *)commentContainerView{
+    [self.commentInputView show];
+
+//    MHYouKuInputPanelView *inputPanelView = [MHYouKuInputPanelView inputPanelView];
+////    inputPanelView.commentReply = commentReply;
+////    inputPanelView.delegate = self;
+//    [inputPanelView show];
+}
 
 #pragma mark - JJCommentInputViewDelegate
 //- (void)commentInputView:(JJCommentInputView *)inputPanelView attributedText:(NSString *)attributedText{
