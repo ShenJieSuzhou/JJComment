@@ -7,7 +7,8 @@
 //
 
 #import "JJCommentInputView.h"
-
+#import "JJTopic.h"
+#import "NSDate+Extension.h"
 
 @interface JJCommentInputView()
 
@@ -15,6 +16,7 @@
 @end
 
 @implementation JJCommentInputView
+@synthesize delegate = _delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -175,7 +177,10 @@
         }
     }else{
         // 解析数据
-        [[JJTopicManager shareInstance].replyDictionary removeObjectForKey:self.commentReply.commentReplyId];
+        if(self.commentReply){
+            [[JJTopicManager shareInstance].replyDictionary removeObjectForKey:self.commentReply.commentReplyId];
+        }
+        
         [[JJTopicManager shareInstance].topicDictionary removeObjectForKey:@"CacheTopic"];
     }
 
@@ -397,17 +402,46 @@
         return;
     }
 
-    if (self.delegate && [self.delegate respondsToSelector:@selector(commentInputView:attributedText:reply:)]) {
-        // 把内容调回去
-        if(self.commentReply){
-            [self.delegate commentInputView:self attributedText:self.textView.text reply:YES];
-        }else{
-            [self.delegate commentInputView:self attributedText:self.textView.text reply:NO];
-        }
+    // 把内容调回去
+    if(self.commentReply){
+        [self.delegate commentInputView:self attributedText:self.textView.text];
+    }else{
+        JJTopic *topic = [[JJTopic alloc] init];
+        topic.postId = @"";
+        topic.topicID = [NSString stringWithFormat:@"%zd",[self mh_randomNumber:30 to:100]];
+        topic.likeNums = 0;
+        topic.like = NO;
+        topic.createTime = [NSDate jj_currentTimestamp];
+        topic.text = self.textView.attributedText.string;
+        topic.commentsCount = 0;
+        JJUser *user = [[JJUser alloc] init];
+        user.avatarUrl = @"";
+        user.nickname = @"乔布斯";
+        user.userId = @"0001";
+        topic.user = user;
+        [self.delegate commentInputView:[self topicFrameWithTopic:topic]];
     }
 
     // 隐藏
     [self dismissByUser:YES];
+}
+
+- (NSInteger) mh_randomNumber:(NSInteger)from to:(NSInteger)to
+{
+    return (NSInteger)(from + (arc4random() % (to - from + 1)));
+}
+
+- (JJTopicFrame *)topicFrameWithTopic:(JJTopic *)topic{
+    if(topic.commentsCount > 2){
+        JJComment *comment = [[JJComment alloc] init];
+        comment.commentId = @"ALLCOMMENT";
+        comment.text = [NSString stringWithFormat:@"查看全部%zd条回复", topic.commentsCount];
+        [topic.replayComments addObject:comment];
+    }
+    
+    JJTopicFrame *topicFrame = [[JJTopicFrame alloc] init];
+    topicFrame.topic = topic;
+    return topicFrame;
 }
 
 @end

@@ -56,7 +56,7 @@
     // 点赞
     self.likeBtn.frame = topicFrame.likeFrame;
     [self.likeBtn setTitle:topic.likeNumsString forState:UIControlStateNormal];
-    self.likeBtn.selected = topic.isLike;
+    self.likeBtn.selected = topic.like;
     
     // 时间
     self.createTimeLabel.frame = topicFrame.createTimeFrame;

@@ -59,12 +59,6 @@
         make.bottom.mas_equalTo(self.mas_bottom);
         make.height.mas_equalTo(50.0f);
     }];
-    
-//    [self.commentInputView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.mas_equalTo(self);
-//        make.bottom.mas_equalTo(self.mas_bottom);
-//        make.height.mas_equalTo(60.0f);
-//    }];
 }
 
 #pragma mark - 添加通知中心
@@ -122,6 +116,7 @@
 - (JJCommentInputView *)commentInputView{
     if(!_commentInputView){
         _commentInputView = [[JJCommentInputView alloc] initWithFrame:CGRectZero];
+        _commentInputView.delegate = self;
     }
     return _commentInputView;
 }
@@ -152,82 +147,38 @@
     _dataSource = dataSource;
 }
 
-//- (JJTopicFrame *)topicFrameWithTopic:(JJTopic *)topic{
-//
-//    if(topic.commentsCount > 2){
-//        JJComment *comment = [[JJComment alloc] init];
-//        comment.commentId = @"ALL";
-//        comment.text = [NSString stringWithFormat:@"查看全部%zd条回复" , topic.commentsCount];
-//        [topic.replayComments addObject:comment];
-//    }
-//
-//    JJTopicFrame *topicFrame = [[JJTopicFrame alloc] init];
-//    topicFrame.topic = topic;
-//
-//    return topicFrame;
-//}
-
 // 回复评论
 - (void)replyCommentWithCommentReply:(JJCommentReplay *)commentReply{
-//    JJCommentInputView *inputView = [[JJCommentInputView alloc] initWithFrame:CGRectMake(0, 0, JJMainScreenWidth, 80.0f)];
-//    inputView.commentReply = commentReply;
-//    inputView.delegate = self;
-//    [inputView show];
-//
-//    self.inputPanelView = inputView;
+    JJCommentInputView *inputView = [[JJCommentInputView alloc] initWithFrame:CGRectZero];
+    inputView.commentReply = commentReply;
+    inputView.delegate = self;
+    [inputView show];
 }
 
 #pragma mark - JJCommentInputViewDelegate
-- (void)commentInputView:(JJCommentInputView *)inputPanelView attributedText:(NSString *)attributedText reply:(BOOL)isReply{
-    if(isReply){
-        
-    }else{
-        
-    }
+- (void)commentInputView:(JJCommentInputView *)inputPanelView attributedText:(NSString *)attributedText{
+    
+}
+
+- (void)commentInputView:(JJTopicFrame *)topicFrame{
+    [self.dataSource insertObject:topicFrame atIndex:0];
+    [self.commentTableView reloadData];
 }
 
 #pragma mark - JJCommentContainerViewDelegate
 -(void)commentContaninerBtnClickAction:(JJCommentContainerView *)commentContainerView{
-    [self.commentInputView setCacheTopicText];
-    [self.commentInputView show];
-
+    JJCommentInputView *inputView = [[JJCommentInputView alloc] initWithFrame:CGRectZero];
+    inputView.delegate = self;
+    [inputView setCacheTopicText];
+    [inputView show];
+    
+//    [self.commentInputView setCacheTopicText];
+//    [self.commentInputView show];
 //    MHYouKuInputPanelView *inputPanelView = [MHYouKuInputPanelView inputPanelView];
 ////    inputPanelView.commentReply = commentReply;
 ////    inputPanelView.delegate = self;
 //    [inputPanelView show];
 }
-
-#pragma mark - JJCommentInputViewDelegate
-//- (void)commentInputView:(JJCommentInputView *)inputPanelView attributedText:(NSString *)attributedText{
-//    // 发送评论
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.25f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//
-//        JJComment *comment = [JJComment new];
-//        comment.postId = self.postId;
-//        comment.commentId = [NSString stringWithFormat:@"%zd", [self mh_randomNumber:0 to:100]];
-//        comment.text = attributedText;
-//        comment.createTime = [NSDate jj_currentTimestamp];
-//
-//        JJUser *fromUser = [[JJUser alloc] init];
-//        fromUser.userId = @"111111111";
-//        fromUser.nickname = @"乔布斯";
-//        fromUser.avatarUrl = @"test";
-//
-//        if(inputPanelView.commentReply.isReply){
-//            JJUser *toUser = [[JJUser alloc] init];
-//            toUser.avatarUrl = inputPanelView.commentReply.user.avatarUrl;
-//            toUser.userId = inputPanelView.commentReply.user.userId;
-//            toUser.nickname = inputPanelView.commentReply.user.nickname;
-//            comment.toUser = toUser;
-//        }
-//
-////        self.selecteTopicFrame.topic
-//
-//        // 发送评论 回复通知
-//
-//
-//    });
-//}
 
 - (NSInteger) mh_randomNumber:(NSInteger)from to:(NSInteger)to
 {

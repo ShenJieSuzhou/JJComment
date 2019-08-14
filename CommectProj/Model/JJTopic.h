@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , copy) NSString * likeNumsString;
 
 /** 是否点赞  0 没有点赞 1 是点赞*/
-@property (nonatomic , assign , getter = isLike) BOOL like;
+@property (nonatomic , assign) BOOL like;
 
 // 创建时间
 @property (nonatomic, copy) NSString *createTime;

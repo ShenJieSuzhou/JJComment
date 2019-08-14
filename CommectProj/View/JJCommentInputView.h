@@ -18,7 +18,8 @@
 
 @protocol JJCommentInputViewDelegate <NSObject>
 @optional
-- (void)commentInputView:(JJCommentInputView *)inputPanelView attributedText:(NSString *)attributedText reply:(BOOL)isReply;
+- (void)commentInputView:(JJCommentInputView *)inputPanelView attributedText:(NSString *)attributedText;
+- (void)commentInputView:(JJTopicFrame *)topicFrame;
 @end
 
 
@@ -34,19 +35,19 @@
 @property (nonatomic, strong) YYTextView *textView;
 
 // 当前字数
-@property (nonatomic , strong) YYLabel *words;
+@property (nonatomic, strong) YYLabel *words;
 
 /** 记录之前编辑框的高度 */
-@property (nonatomic , assign) CGFloat previousTextViewContentHeight;
+@property (nonatomic, assign) CGFloat previousTextViewContentHeight;
 
 /** 记录键盘的高度 */
-@property (nonatomic , assign) CGFloat keyboardHeight;
+@property (nonatomic, assign) CGFloat keyboardHeight;
 
 /** cacheText */
-@property (nonatomic , copy) NSString *cacheText;
+@property (nonatomic, copy) NSString *cacheText;
 
 /** 回复评论 */
-@property (nonatomic , strong) JJCommentReplay *commentReply;
+@property (nonatomic, strong) JJCommentReplay *commentReply;
 
 @property (nonatomic, weak) id<JJCommentInputViewDelegate> delegate;
 
