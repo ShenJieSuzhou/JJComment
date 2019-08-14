@@ -54,6 +54,9 @@
 
 - (void)dismissByUser:(BOOL)state;
 
+/** 设置缓存的评论 */
+- (void)setCacheTopicText;
+
 @end
 
 

@@ -19,6 +19,8 @@
 
 @property (nonatomic, strong) NSMutableDictionary *replyDictionary;
 
+@property (nonatomic, strong) NSMutableDictionary *topicDictionary;
+
 + (JJTopicManager *)shareInstance;
 
 - (JJCommentReplay *)commentReplyWithModel:(id)model;

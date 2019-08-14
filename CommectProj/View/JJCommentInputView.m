@@ -66,7 +66,7 @@
     textView.layer.borderColor = [UIColor clearColor].CGColor;
     textView.backgroundColor = [UIColor grayColor];
     textView.placeholderFont = textView.font;
-    textView.placeholderTextColor = [UIColor lightGrayColor];
+    textView.placeholderTextColor = [UIColor blueColor];
     textView.delegate = self;
     self.textView = textView;
     [self.bottomToolBar addSubview:textView];
@@ -154,22 +154,29 @@
     if (!state) {
         // 自动消失
         if ([self.cacheText isEqualToString:self.textView.text]) {
-            // 未做处理
+
         } else {
             // 如果不一样则需要保存
             if (self.textView.text.length == 0){
                 //输入框没做任何处理
-                if (self.cacheText.length == 0){
+                if (self.commentReply){
                     // 存@""值
                     [[JJTopicManager shareInstance].replyDictionary setValue:@"" forKey:self.commentReply.commentReplyId];
+                }else{
+                    [[JJTopicManager shareInstance].topicDictionary setValue:@"" forKey:@"CacheTopic"];
                 }
             }else{
-                [[JJTopicManager shareInstance].replyDictionary setValue:self.textView.text forKey:self.commentReply.commentReplyId];
+                if(self.commentReply){
+                    [[JJTopicManager shareInstance].replyDictionary setValue:self.textView.text forKey:self.commentReply.commentReplyId];
+                }else{
+                    [[JJTopicManager shareInstance].topicDictionary setValue:self.textView.text forKey:@"CacheTopic"];
+                }
             }
         }
     }else{
         // 解析数据
         [[JJTopicManager shareInstance].replyDictionary removeObjectForKey:self.commentReply.commentReplyId];
+        [[JJTopicManager shareInstance].topicDictionary removeObjectForKey:@"CacheTopic"];
     }
 
     [self.textView resignFirstResponder];
@@ -187,6 +194,16 @@
     // 设置text
     // 获取缓存text
     self.cacheText = [[JJTopicManager shareInstance].replyDictionary objectForKey:commentReply.commentReplyId];
+    // 缓存字体
+    self.textView.text = self.cacheText;
+}
+
+- (void)setCacheTopicText{
+    // 设置placeholder
+    self.textView.placeholderText = [NSString stringWithFormat:@"对Ta说点什么"];
+    // 设置text
+    // 获取缓存text
+    self.cacheText = [[JJTopicManager shareInstance].topicDictionary objectForKey:@"CacheTopic"];
     // 缓存字体
     self.textView.text = self.cacheText;
 }

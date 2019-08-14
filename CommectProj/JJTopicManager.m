@@ -16,6 +16,7 @@
 @implementation JJTopicManager
 @synthesize commentDictionary = _commentDictionary;
 @synthesize replyDictionary = _replyDictionary;
+@synthesize topicDictionary = _topicDictionary;
 
 + (JJTopicManager *)shareInstance{
     static JJTopicManager *instance = nil;
@@ -24,6 +25,7 @@
         instance = [JJTopicManager new];
         instance.commentDictionary = [NSMutableDictionary new];
         instance.replyDictionary = [NSMutableDictionary new];
+        instance.topicDictionary = [NSMutableDictionary new];
     });
     
     return instance;

@@ -177,8 +177,14 @@
 //    self.inputPanelView = inputView;
 }
 
+#pragma mark - JJCommentInputViewDelegate
+- (void)commentInputView:(JJCommentInputView *)inputPanelView attributedText:(NSString *)attributedText{
+    
+}
+
 #pragma mark - JJCommentContainerViewDelegate
 -(void)commentContaninerBtnClickAction:(JJCommentContainerView *)commentContainerView{
+    [self.commentInputView setCacheTopicText];
     [self.commentInputView show];
 
 //    MHYouKuInputPanelView *inputPanelView = [MHYouKuInputPanelView inputPanelView];
