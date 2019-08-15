@@ -156,13 +156,6 @@
 }
 
 #pragma mark - JJCommentInputViewDelegate
-- (void)commentInputView:(JJCommentInputView *)inputPanelView attributedText:(NSString *)attributedText{
-    
-    
-    
-    
-}
-
 - (void)commentInputView:(JJTopicFrame *)topicFrame{
     [self.dataSource insertObject:topicFrame atIndex:0];
     [self.commentTableView reloadData];
@@ -199,6 +192,16 @@
             [self.selecteTopicFrame.topic.replayComments addObject:comment];
         }
     }
+    
+    [self reloadSelectedSection];
+}
+
+- (void)reloadSelectedSection{
+    [self.commentTableView beginUpdates];
+    NSInteger index = [self.dataSource indexOfObject:self.selecteTopicFrame];
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:index];
+    [self.commentTableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+    [self.commentTableView endUpdates];
 }
 
 #pragma mark - JJCommentContainerViewDelegate
