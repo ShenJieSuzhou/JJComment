@@ -114,6 +114,7 @@
         JJTopic *topic = [[JJTopic alloc] init];
         topic.topicID = [NSString stringWithFormat:@"%d", i];
         topic.likeNums = [self mh_randomNumber:1000 to:100000];
+        topic.like = [self mh_randomNumber:0 to:1];
         
         // 假时间
         NSDate *date = [NSDate date];

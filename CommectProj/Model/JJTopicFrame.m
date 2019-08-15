@@ -50,7 +50,7 @@
     CGFloat likeW = topic.likeNumsString ? ([topic.likeNumsString jj_sizeWithFont:[UIFont systemFontOfSize:10.0f]].width + 30):44;
     CGFloat likeX = CGRectGetMinX(self.moreFrame) - likeW;
     CGFloat likeY = avatarY;
-    CGFloat likeH = moreH;
+    CGFloat likeH = avatarH;
     self.likeFrame = CGRectMake(likeX, likeY, likeW, likeH);
     
     // 昵称

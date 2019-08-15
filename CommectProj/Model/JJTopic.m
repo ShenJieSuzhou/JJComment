@@ -43,6 +43,11 @@
     return attributedString;
 }
 
+- (void)setLikeNums:(NSInteger)likeNums{
+    _likeNums = likeNums;
+    self.likeNumsString = [self thumbNumsStringWithThumbNums:_likeNums];
+}
+
 - (NSString *)createTime{
     NSDateFormatter *fmt = [NSDateFormatter jj_defaultDateFormatter];
     fmt.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
@@ -73,5 +78,21 @@
     }
 }
 
+// 点赞
+- (NSString *)thumbNumsStringWithThumbNums:(NSInteger)thumbNums
+{
+    NSString *titleString = nil;
+    
+    if (thumbNums >= 10000) { // 上万
+        CGFloat final = thumbNums / 10000.0;
+        titleString = [NSString stringWithFormat:@"%.1f万", final];
+        // 替换.0为空串
+        titleString = [titleString stringByReplacingOccurrencesOfString:@".0" withString:@""];
+    } else if (thumbNums > 0) { // 一万以内
+        titleString = [NSString stringWithFormat:@"%ld", (long)thumbNums];
+    }
+    
+    return titleString;
+}
 
 @end
