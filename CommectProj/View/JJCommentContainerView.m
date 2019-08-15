@@ -8,6 +8,7 @@
 
 #import "JJCommentContainerView.h"
 #import <Masonry/Masonry.h>
+#import "JJCommentConstant.h"
 
 @implementation JJCommentContainerView
 @synthesize commentCount = _commentCount;
@@ -25,7 +26,10 @@
 }
 
 - (void)commonInitlization{
-    [self setBackgroundColor:[UIColor whiteColor]];
+    [self setBackgroundColor:JJAlphaColor(244, 243, 245, 1)];
+    [self.layer setBorderWidth:1.0];
+    [self.layer setBorderColor:[UIColor colorWithRed:238/255.0f green:238/255.0f blue:238/255.0f alpha:1].CGColor];
+    [self.layer setMasksToBounds:YES];
     
     [self.commentBtn setTitle:[NSString stringWithFormat:@"已有%zd条评论，快来说说你的感想吧", _commentCount] forState:UIControlStateNormal];
     
@@ -42,7 +46,7 @@
         make.centerY.equalTo(self);
         make.size.mas_equalTo(CGSizeMake([UIScreen mainScreen].bounds.size.width * 0.66, 30));
     }];
-
+    
     [self.commentCountView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.commentBtn.mas_right).offset(30.0f);
         make.centerY.equalTo(self);
@@ -52,15 +56,22 @@
     [self.shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.commentCountView.mas_right).offset(30.0f);
         make.centerY.equalTo(self);
-        make.size.mas_equalTo(CGSizeMake(30, 30));
+        make.size.mas_equalTo(CGSizeMake(25, 25));
     }];
 }
 
 - (UIButton *)commentBtn{
     if(!_commentBtn){
         _commentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_commentBtn setBackgroundColor:[UIColor grayColor]];
         [_commentBtn addTarget:self action:@selector(commentBtnDidClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [_commentBtn setBackgroundColor:[UIColor whiteColor]];
+        [_commentBtn setTitleColor:JJAlphaColor(194, 194, 194, 1) forState:UIControlStateNormal];
+        [_commentBtn.titleLabel setFont:JJReguFont(12.0f)];
+        _commentBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        _commentBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+        [_commentBtn.layer setCornerRadius:10.0f];
+        [_commentBtn.layer setBorderColor:[UIColor colorWithRed:249/255.0f green:249/255.0f blue:249/255.0f alpha:1].CGColor];
+        [_commentBtn.layer setMasksToBounds:YES];
     }
     return _commentBtn;
 }

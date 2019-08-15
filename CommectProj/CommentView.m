@@ -180,7 +180,7 @@
             
             // 设置假数据
             JJComment *lastComment = [[JJComment alloc] init];
-            lastComment.commentId = @"AllComment";
+            lastComment.commentId = @"ALLCOMMENT";
             lastComment.text = [NSString stringWithFormat:@"查看全部%zd条回复" , self.selecteTopicFrame.topic.commentsCount];
             JJCommentFrame *lastCommentFrame =  [[JJTopicManager shareInstance] commentFramesWithComments:@[lastComment]].lastObject;
             // 添加假数据
@@ -275,7 +275,7 @@
         JJCommentFrame *commentFrame = topicFrame.commentFrames[indexPath.row];
         self.selecteTopicFrame = topicFrame;
         
-        if([commentFrame.comment.commentId isEqualToString:@"AllComment"]){
+        if([commentFrame.comment.commentId isEqualToString:@"ALLCOMMENT"]){
             // 跳转到更多评论
             [_delegate jumpToCommemtDetailView:topicFrame];
             return;
@@ -316,7 +316,6 @@
     
     if([model isKindOfClass:[JJTopicFrame class]]){
         JJCommentCell *cell = [JJCommentCell cellWithTableView:tableView];
-        [cell setBackgroundColor:[UIColor redColor]];
         JJTopicFrame *topicFrame = (JJTopicFrame *)model;
         JJCommentFrame *commentFrame = topicFrame.commentFrames[indexPath.row];
         cell.commentFrame = commentFrame;

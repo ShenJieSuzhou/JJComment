@@ -8,6 +8,7 @@
 
 #import "JJTopicHeaderView.h"
 #import "JJCommentConstant.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation JJTopicHeaderView
 
@@ -47,7 +48,7 @@
     
     // 头像
     self.avatarView.frame = topicFrame.avatarFrame;
-    [self.avatarView setImage:[UIImage imageNamed:@"defaultAvatar"]];
+    [self.avatarView sd_setImageWithURL:[NSURL URLWithString:user.avatarUrl] placeholderImage:[UIImage imageNamed:@"default"]];
     
     // 昵称
     self.nicknameLable.frame = topicFrame.nicknameFrame;
@@ -88,9 +89,9 @@
     // 昵称
     YYLabel *nicknameLable = [[YYLabel alloc] init];
     nicknameLable.text = @"";
-    nicknameLable.font = [UIFont systemFontOfSize:10.0f];
+    nicknameLable.font = JJReguFont(14.0f);
     nicknameLable.textAlignment = NSTextAlignmentLeft;
-    nicknameLable.textColor = [UIColor blackColor];
+    nicknameLable.textColor = JJAlphaColor(156,156,156,1);
     [self.contentView addSubview:nicknameLable];
     self.nicknameLable = nicknameLable;
     
@@ -114,9 +115,9 @@
     // 时间
     YYLabel *createTimeLabel = [[YYLabel alloc] init];
     createTimeLabel.text = @"";
-    createTimeLabel.font = [UIFont systemFontOfSize:10.0f];;
+    createTimeLabel.font = JJReguFont(10.0f);;
     createTimeLabel.textAlignment = NSTextAlignmentLeft;
-    createTimeLabel.textColor = [UIColor blackColor];
+    createTimeLabel.textColor = JJAlphaColor(156,156,156,1);
     [self.contentView addSubview:createTimeLabel];
     self.createTimeLabel = createTimeLabel;
     createTimeLabel.textTapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
@@ -125,14 +126,14 @@
     
     // 文本
     YYLabel *contentLabel = [[YYLabel alloc] init];
-    // 设置文本的额外区域，修复用户点击文本没有效果
     UIEdgeInsets textContainerInset = contentLabel.textContainerInset;
     textContainerInset.top = JJTopicVerticalSpace;
     textContainerInset.bottom = JJTopicVerticalSpace;
     contentLabel.textContainerInset = textContainerInset;
-    
     contentLabel.numberOfLines = 0 ;
     contentLabel.textAlignment = NSTextAlignmentLeft;
+    contentLabel.font = JJReguFont(14.0f);
+    contentLabel.textColor = JJAlphaColor(101,101,101,1);
     [self.contentView addSubview:contentLabel];
     self.contentLabel = contentLabel;
     

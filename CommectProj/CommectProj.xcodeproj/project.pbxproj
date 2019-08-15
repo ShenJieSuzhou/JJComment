@@ -12,6 +12,7 @@
 		E50B2FF9230291EE00F63471 /* JJCommentDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E50B2FF8230291EE00F63471 /* JJCommentDetailController.m */; };
 		E50B2FFC2302BAC300F63471 /* JJCommentContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E50B2FFB2302BAC300F63471 /* JJCommentContainerView.m */; };
 		E50B2FFF2302BFA200F63471 /* CommentCountView.m in Sources */ = {isa = PBXBuildFile; fileRef = E50B2FFE2302BFA200F63471 /* CommentCountView.m */; };
+		E50B3005230531B200F63471 /* UIView+JJFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E50B3004230531B200F63471 /* UIView+JJFrame.m */; };
 		E51ABA5F22F94D7500449075 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA5E22F94D7500449075 /* AppDelegate.m */; };
 		E51ABA6222F94D7500449075 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E51ABA6122F94D7500449075 /* ViewController.m */; };
 		E51ABA6522F94D7500449075 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E51ABA6322F94D7500449075 /* Main.storyboard */; };
@@ -50,6 +51,8 @@
 		E50B2FFB2302BAC300F63471 /* JJCommentContainerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJCommentContainerView.m; sourceTree = "<group>"; };
 		E50B2FFD2302BFA200F63471 /* CommentCountView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentCountView.h; sourceTree = "<group>"; };
 		E50B2FFE2302BFA200F63471 /* CommentCountView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCountView.m; sourceTree = "<group>"; };
+		E50B3003230531B200F63471 /* UIView+JJFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+JJFrame.h"; sourceTree = "<group>"; };
+		E50B3004230531B200F63471 /* UIView+JJFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+JJFrame.m"; sourceTree = "<group>"; };
 		E51ABA5A22F94D7500449075 /* CommectProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommectProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E51ABA5D22F94D7500449075 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E51ABA5E22F94D7500449075 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -246,6 +249,8 @@
 				E54797C622FBF29000040E04 /* UIFont+JJExtension.m */,
 				E54797CB22FD46BA00040E04 /* NSString+JJSize.h */,
 				E54797CC22FD46BA00040E04 /* NSString+JJSize.m */,
+				E50B3003230531B200F63471 /* UIView+JJFrame.h */,
+				E50B3004230531B200F63471 /* UIView+JJFrame.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 				E54797CD22FD46BA00040E04 /* NSString+JJSize.m in Sources */,
 				E54797C722FBF29000040E04 /* UIFont+JJExtension.m in Sources */,
 				E50B2FF9230291EE00F63471 /* JJCommentDetailController.m in Sources */,
+				E50B3005230531B200F63471 /* UIView+JJFrame.m in Sources */,
 				E51ABA8322F980C500449075 /* JJCommentCell.m in Sources */,
 				E51ABA7C22F97C2300449075 /* JJTopicFrame.m in Sources */,
 				E54797CA22FC0C1A00040E04 /* Works.m in Sources */,

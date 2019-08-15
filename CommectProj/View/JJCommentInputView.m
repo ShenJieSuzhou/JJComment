@@ -31,11 +31,14 @@
     // 添加通知中心
     [self addNotificationCenter];
     
-    self.backgroundColor = [UIColor clearColor];
+    [self setBackgroundColor:[UIColor clearColor]];
 
     // 底部工具条
     UIView *bottomToolBar = [[UIView alloc] init];
-    bottomToolBar.backgroundColor = [UIColor whiteColor];
+    bottomToolBar.backgroundColor = JJAlphaColor(244, 243, 245, 1);
+    [bottomToolBar.layer setBorderWidth:1.0];
+    [bottomToolBar.layer setBorderColor:[UIColor colorWithRed:238/255.0f green:238/255.0f blue:238/255.0f alpha:1].CGColor];
+    [bottomToolBar.layer setMasksToBounds:YES];
     [self addSubview:bottomToolBar];
     self.bottomToolBar = bottomToolBar;
 
@@ -52,7 +55,7 @@
 
     // textView
     YYTextView *textView = [[YYTextView alloc] init];
-    textView.font = JJReguFont(13.0f);
+    textView.font = JJReguFont(15.0f);
     textView.textAlignment = NSTextAlignmentLeft;
     textView.textColor = [UIColor blackColor];
     UIEdgeInsets insets = textView.textContainerInset;
@@ -65,10 +68,10 @@
     textView.showsHorizontalScrollIndicator = NO;
     textView.layer.cornerRadius = [UIScreen mainScreen].bounds.size.width / 375 * 5;
     textView.layer.borderWidth = [UIScreen mainScreen].bounds.size.width / 375 * 1;
-    textView.layer.borderColor = [UIColor clearColor].CGColor;
-    textView.backgroundColor = [UIColor grayColor];
+    textView.layer.borderColor = [UIColor colorWithRed:249/255.0f green:249/255.0f blue:249/255.0f alpha:1].CGColor;
+    textView.backgroundColor = [UIColor whiteColor];
     textView.placeholderFont = textView.font;
-    textView.placeholderTextColor = [UIColor blueColor];
+    textView.placeholderTextColor = JJAlphaColor(194, 194, 194, 1);
     textView.delegate = self;
     self.textView = textView;
     [self.bottomToolBar addSubview:textView];
@@ -85,7 +88,7 @@
     [bottomView addSubview: words];
     
     UIControl *backgroundControl = [[UIControl alloc] init];
-    backgroundControl.backgroundColor = JJAlphaColor(.0, .0, .0, .2);
+    backgroundControl.backgroundColor = JJAlphaColor(.0, .0, .0, 0);
     [backgroundControl addTarget:self action:@selector(backgroundDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:backgroundControl];
     

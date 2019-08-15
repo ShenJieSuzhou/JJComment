@@ -2,6 +2,7 @@ target 'CommectProj' do
 
     pod 'Masonry'
     pod 'YYText'
-    pod 'MJRefresh' 
+    pod 'MJRefresh'
+    pod 'SDWebImage'
 
 end

@@ -46,8 +46,8 @@
         NSString *textString = [NSString stringWithFormat:@"%@",self.text];
         
         NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] initWithString:textString];
-        mutableAttributedString.yy_font = JJCommentTextFont;
-        mutableAttributedString.yy_color = [UIColor blackColor];
+        mutableAttributedString.yy_font = JJReguFont(14.0f);
+        mutableAttributedString.yy_color = JJAlphaColor(75, 126, 160, 1);
         mutableAttributedString.yy_lineSpacing = JJCommentContentLineSpacing;
         return mutableAttributedString;
     }
@@ -56,7 +56,7 @@
     if(self.toUser && self.toUser.nickname.length > 0){
         NSString *textString = [NSString stringWithFormat:@"%@回复%@: %@", self.fromUser.nickname, self.toUser.nickname, self.text];
         NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] initWithString:textString];
-        mutableAttributedString.yy_font = JJCommentTextFont;
+        mutableAttributedString.yy_font = JJReguFont(14.0f);
         mutableAttributedString.yy_color = [UIColor blackColor];
         mutableAttributedString.yy_lineSpacing = JJCommentContentLineSpacing;
         
@@ -64,19 +64,19 @@
         YYTextHighlight *fromUserHighlight = [YYTextHighlight highlightWithBackgroundColor:[UIColor colorWithWhite:0.000 alpha:0.220]];
         fromUserHighlight.userInfo = @{@"JJCommentUserKey":self.fromUser};
         [mutableAttributedString yy_setTextHighlight:fromUserHighlight range:fromUserRange];
-        [mutableAttributedString yy_setColor:[UIColor blackColor] range:NSMakeRange(0, self.fromUser.nickname.length)];
+        [mutableAttributedString yy_setColor:JJAlphaColor(49, 116, 161, 1) range:NSMakeRange(0, self.fromUser.nickname.length)];
         
         NSRange toUserRange = [textString rangeOfString:[NSString stringWithFormat:@"%@:", self.toUser.nickname]];
         YYTextHighlight *toUserHighlight = [YYTextHighlight highlightWithBackgroundColor:[UIColor colorWithWhite:0.000 alpha:0.220]];
         toUserHighlight.userInfo = @{@"JJCommentUserKey":self.toUser};
         [mutableAttributedString yy_setTextHighlight:toUserHighlight range:toUserRange];
-        [mutableAttributedString yy_setColor:[UIColor blackColor] range:toUserRange];
+        [mutableAttributedString yy_setColor:JJAlphaColor(49, 116, 161, 1) range:toUserRange];
         
         return mutableAttributedString;
     }else{
         NSString *textString = [NSString stringWithFormat:@"%@: %@", self.fromUser.nickname, self.text];
         NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] initWithString:textString];
-        mutableAttributedString.yy_font = JJCommentTextFont;
+        mutableAttributedString.yy_font = JJReguFont(14.0f);
         mutableAttributedString.yy_color = [UIColor blackColor];
         mutableAttributedString.yy_lineSpacing = JJCommentContentLineSpacing;
         
@@ -84,6 +84,7 @@
         YYTextHighlight *fromUserHighlight = [YYTextHighlight highlightWithBackgroundColor:[UIColor colorWithWhite:0.000 alpha:0.220]];
         fromUserHighlight.userInfo = @{@"JJCommentUserKey":self.fromUser};
         [mutableAttributedString yy_setTextHighlight:fromUserHighlight range:fromUserRange];
+        [mutableAttributedString yy_setColor:JJAlphaColor(49, 116, 161, 1) range:fromUserRange];
         
         return mutableAttributedString;
     }

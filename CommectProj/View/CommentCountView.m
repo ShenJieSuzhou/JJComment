@@ -36,8 +36,9 @@
     }];
     
     [self.commentCounts mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.right.equalTo(self);
-        make.left.mas_equalTo(self).offset(10.0f);
+        make.top.equalTo(self).offset(-5.0f);
+        make.right.equalTo(self).offset(10.0f);
+        make.left.mas_equalTo(self).offset(15.0f);
         make.height.mas_equalTo(15);
     }];
     
@@ -59,7 +60,7 @@
 - (YYLabel *)commentCounts{
     if(!_commentCounts){
         _commentCounts = [YYLabel new];
-        [_commentCounts setBackgroundColor:[UIColor whiteColor]];
+        [_commentCounts setBackgroundColor:JJAlphaColor(244, 243, 245, 1)];
         _commentCounts.textColor = [UIColor redColor];
         _commentCounts.font = JJReguFont(10.0f);
     }
