@@ -44,19 +44,19 @@
     [self.commentBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(10.0f);
         make.centerY.equalTo(self);
-        make.size.mas_equalTo(CGSizeMake([UIScreen mainScreen].bounds.size.width * 0.66, 30));
+        make.size.mas_equalTo(CGSizeMake([UIScreen mainScreen].bounds.size.width * 0.7, 30));
     }];
     
     [self.commentCountView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.commentBtn.mas_right).offset(30.0f);
+        make.left.equalTo(self.commentBtn.mas_right).offset(20.0f);
         make.centerY.equalTo(self);
         make.size.mas_equalTo(CGSizeMake(30, 30));
     }];
 
     [self.shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.commentCountView.mas_right).offset(30.0f);
+        make.left.equalTo(self.commentCountView.mas_right).offset(20.0f);
         make.centerY.equalTo(self);
-        make.size.mas_equalTo(CGSizeMake(25, 25));
+        make.size.mas_equalTo(CGSizeMake(30, 30));
     }];
 }
 

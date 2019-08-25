@@ -53,7 +53,7 @@
 		E50B2FFE2302BFA200F63471 /* CommentCountView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCountView.m; sourceTree = "<group>"; };
 		E50B3003230531B200F63471 /* UIView+JJFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+JJFrame.h"; sourceTree = "<group>"; };
 		E50B3004230531B200F63471 /* UIView+JJFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+JJFrame.m"; sourceTree = "<group>"; };
-		E51ABA5A22F94D7500449075 /* CommectProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommectProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E51ABA5A22F94D7500449075 /* CommentProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommentProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E51ABA5D22F94D7500449075 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E51ABA5E22F94D7500449075 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E51ABA6022F94D7500449075 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 		E51ABA5B22F94D7500449075 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E51ABA5A22F94D7500449075 /* CommectProj.app */,
+				E51ABA5A22F94D7500449075 /* CommentProj.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -258,9 +258,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E51ABA5922F94D7500449075 /* CommectProj */ = {
+		E51ABA5922F94D7500449075 /* CommentProj */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E51ABA7022F94D7600449075 /* Build configuration list for PBXNativeTarget "CommectProj" */;
+			buildConfigurationList = E51ABA7022F94D7600449075 /* Build configuration list for PBXNativeTarget "CommentProj" */;
 			buildPhases = (
 				0CB6849652A94367442614BD /* [CP] Check Pods Manifest.lock */,
 				E51ABA5622F94D7500449075 /* Sources */,
@@ -272,9 +272,9 @@
 			);
 			dependencies = (
 			);
-			name = CommectProj;
+			name = CommentProj;
 			productName = CommectProj;
-			productReference = E51ABA5A22F94D7500449075 /* CommectProj.app */;
+			productReference = E51ABA5A22F94D7500449075 /* CommentProj.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -291,7 +291,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E51ABA5522F94D7500449075 /* Build configuration list for PBXProject "CommectProj" */;
+			buildConfigurationList = E51ABA5522F94D7500449075 /* Build configuration list for PBXProject "CommentProj" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -304,7 +304,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E51ABA5922F94D7500449075 /* CommectProj */,
+				E51ABA5922F94D7500449075 /* CommentProj */,
 			);
 		};
 /* End PBXProject section */
@@ -575,7 +575,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E51ABA5522F94D7500449075 /* Build configuration list for PBXProject "CommectProj" */ = {
+		E51ABA5522F94D7500449075 /* Build configuration list for PBXProject "CommentProj" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E51ABA6E22F94D7600449075 /* Debug */,
@@ -584,7 +584,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E51ABA7022F94D7600449075 /* Build configuration list for PBXNativeTarget "CommectProj" */ = {
+		E51ABA7022F94D7600449075 /* Build configuration list for PBXNativeTarget "CommentProj" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E51ABA7122F94D7600449075 /* Debug */,

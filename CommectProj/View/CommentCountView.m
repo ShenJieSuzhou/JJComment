@@ -32,11 +32,11 @@
     [super layoutSubviews];
     
     [self.imageV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.bottom.right.equalTo(self);
+        make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(5, 5, 5, 5));
     }];
     
     [self.commentCounts mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(-5.0f);
+        make.top.equalTo(self).offset(-2.0f);
         make.right.equalTo(self).offset(10.0f);
         make.left.mas_equalTo(self).offset(15.0f);
         make.height.mas_equalTo(15);
